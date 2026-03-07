@@ -1,5 +1,7 @@
 {
   "name": "laravel-debugging",
-  "description": "Debug Laravel apps in production — N+1, memory leaks, stuck queues, slow jobs, Horizon",
-  "version": "1.0.0"
+  "description": "Debug Laravel apps in production — N+1 queries, memory leaks, stuck queues, slow jobs, Horizon",
+  "version": "1.0.0",
+  "keywords": ["laravel","debug","n+1","memory leak","queue","horizon","job","failed","exception","eloquent"],
+  "category": "development"
 }

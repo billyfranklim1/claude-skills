@@ -1,5 +1,7 @@
 {
   "name": "playwright",
-  "description": "Playwright tests and scrapers — selectors, flaky fixes, CI/CD integration",
-  "version": "1.0.0"
+  "description": "Write, debug, and maintain Playwright tests and scrapers — resilient selectors, CI/CD",
+  "version": "1.0.0",
+  "keywords": ["playwright","scraper","e2e","browser","headless","selector","locator","screenshot","test"],
+  "category": "development"
 }

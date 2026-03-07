@@ -1,5 +1,7 @@
 {
   "name": "redis-patterns",
-  "description": "Diagnose and optimize Redis — Laravel cache, Horizon queues, sessions, memory management",
-  "version": "1.0.0"
+  "description": "Redis diagnostics and optimization — cache, queues, sessions, memory management for Laravel apps",
+  "version": "1.0.0",
+  "keywords": ["redis","cache","queue","horizon","session","memory","flush","keys","ttl","eviction"],
+  "category": "database"
 }

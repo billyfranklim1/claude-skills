@@ -1,5 +1,7 @@
 {
   "name": "deploy",
-  "description": "Deploy Laravel and Next.js apps — zero-downtime, migrations, builds, rollbacks",
-  "version": "1.0.0"
+  "description": "Zero-downtime deployment for Laravel and Next.js applications",
+  "version": "1.0.0",
+  "keywords": ["deploy","publish","release","migration","build","git","composer","npm","artisan"],
+  "category": "devops"
 }

@@ -1,5 +1,7 @@
 {
   "name": "agent-memory",
-  "description": "Persistent semantic memory for saving facts, patterns, and decisions across sessions",
-  "version": "1.0.0"
+  "description": "Persistent semantic memory for the agent — save facts, patterns, and decisions across sessions",
+  "version": "1.0.0",
+  "keywords": ["memory","remember","save","fact","pattern","decision","context","persist"],
+  "category": "productivity"
 }

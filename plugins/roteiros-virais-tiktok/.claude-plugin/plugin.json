@@ -1,5 +1,7 @@
 {
   "name": "roteiros-virais-tiktok",
-  "description": "Create viral short-video scripts for TikTok/Reels — career and employability content",
-  "version": "1.0.0"
+  "description": "Create viral short-form video scripts (TikTok/Reels) optimized for engagement",
+  "version": "1.0.0",
+  "keywords": ["tiktok","reels","video script","viral","career","hook","cta","engagement","short form"],
+  "category": "marketing"
 }

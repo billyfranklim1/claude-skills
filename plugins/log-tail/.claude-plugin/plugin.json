@@ -1,5 +1,7 @@
 {
   "name": "log-tail",
-  "description": "Stream recent logs from systemd journal and application log files",
-  "version": "1.0.0"
+  "description": "Stream recent logs from systemd journal — view logs by service unit, follow in real time",
+  "version": "1.0.0",
+  "keywords": ["log","tail","journalctl","syslog","nginx log","laravel log","error log","stream","realtime"],
+  "category": "monitoring"
 }

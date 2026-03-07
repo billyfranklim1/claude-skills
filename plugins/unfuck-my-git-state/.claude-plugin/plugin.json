@@ -1,5 +1,7 @@
 {
   "name": "unfuck-my-git-state",
-  "description": "Diagnose and recover broken Git state — detached HEAD, phantom worktrees, missing refs",
-  "version": "1.0.0"
+  "description": "Diagnose and recover broken Git state — detached HEAD, phantom worktrees, orphaned refs",
+  "version": "1.0.0",
+  "keywords": ["git broken","detached head","phantom worktree","orphaned","missing ref","git recover","git fix"],
+  "category": "development"
 }

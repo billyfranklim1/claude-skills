@@ -1,5 +1,7 @@
 {
   "name": "sysadmin-toolbox",
-  "description": "Sysadmin tool discovery and shell one-liners for networking, security, and DevOps",
-  "version": "1.0.0"
+  "description": "Tool discovery and shell one-liner reference for sysadmin, DevOps, and security tasks",
+  "version": "1.0.0",
+  "keywords": ["sysadmin","devops","network","tcpdump","ss","lsof","strace","nmap","openssl","curl","dig"],
+  "category": "devops"
 }

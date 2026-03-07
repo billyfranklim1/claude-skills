@@ -1,5 +1,7 @@
 {
   "name": "mysql-performance",
-  "description": "Diagnose slow queries, index tables, analyze EXPLAIN plans, tune MySQL 8",
-  "version": "1.0.0"
+  "description": "Diagnose slow queries, index tables, analyze EXPLAIN plans, tune MySQL 8 in production",
+  "version": "1.0.0",
+  "keywords": ["mysql","slow query","index","explain","n+1","deadlock","innodb","buffer pool","performance"],
+  "category": "database"
 }

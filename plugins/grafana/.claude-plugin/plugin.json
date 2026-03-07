@@ -1,5 +1,7 @@
 {
   "name": "grafana",
-  "description": "Grafana dashboards, Loki LogQL, variable templating, alerting, and API queries",
-  "version": "1.0.0"
+  "description": "Grafana and Loki operations — API queries, LogQL, variable templating, alerting, provisioning",
+  "version": "1.0.0",
+  "keywords": ["grafana","dashboard","loki","logql","variable","templating","provisioning","datasource","alert"],
+  "category": "monitoring"
 }

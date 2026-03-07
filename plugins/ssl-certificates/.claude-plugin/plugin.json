@@ -1,5 +1,7 @@
 {
   "name": "ssl-certificates",
-  "description": "SSL/TLS certificates — Let's Encrypt, certbot, auto-renewal, wildcard, Cloudflare SSL",
-  "version": "1.0.0"
+  "description": "SSL/TLS certificate management — Let's Encrypt, certbot, auto-renewal, wildcard DNS challenge",
+  "version": "1.0.0",
+  "keywords": ["ssl","tls","https","certificate","certbot","letsencrypt","wildcard","renew","expired","dns-01"],
+  "category": "security"
 }

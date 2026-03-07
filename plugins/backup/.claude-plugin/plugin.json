@@ -1,5 +1,7 @@
 {
   "name": "backup",
-  "description": "Database backup and restore — mysqldump, Cloudflare R2, recovery procedures",
-  "version": "1.0.0"
+  "description": "Database backup and restore with MySQL, Cloudflare R2, and automated scheduling",
+  "version": "1.0.0",
+  "keywords": ["backup","restore","dump","database","r2","cloudflare","mysqldump","recovery"],
+  "category": "database"
 }

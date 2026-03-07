@@ -1,5 +1,7 @@
 {
   "name": "php-full-stack-developer",
-  "description": "Senior PHP/Laravel full-stack developer — backend, frontend, DB, DevOps, CI, security",
-  "version": "1.0.0"
+  "description": "Senior PHP/Laravel full-stack developer — backend, frontend, DB, DevOps, CI, debugging",
+  "version": "1.0.0",
+  "keywords": ["php","laravel","eloquent","blade","inertia","controller","model","migration","middleware","api"],
+  "category": "development"
 }

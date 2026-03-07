@@ -1,5 +1,7 @@
 {
   "name": "web-research",
-  "description": "Web research — search documentation, browse sites, analyze competitors",
-  "version": "1.0.0"
+  "description": "Web research, documentation lookup, site navigation, competitor analysis",
+  "version": "1.0.0",
+  "keywords": ["search","web","url","browse","playwright","google","documentation","competitor"],
+  "category": "productivity"
 }

@@ -1,5 +1,7 @@
 {
   "name": "performance-profiling",
-  "description": "Profile performance bottlenecks — Xdebug, Blackfire, flame graphs, k6 load testing",
-  "version": "1.0.0"
+  "description": "Profile and diagnose performance bottlenecks in PHP/Laravel, Next.js, and MySQL",
+  "version": "1.0.0",
+  "keywords": ["performance","profiling","xdebug","k6","load test","throughput","latency","bottleneck","benchmark"],
+  "category": "devops"
 }

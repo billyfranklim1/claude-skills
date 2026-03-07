@@ -1,5 +1,7 @@
 {
   "name": "sre",
-  "description": "Server Reliability Engineering — monitoring, logs, performance, incidents, services",
-  "version": "1.0.0"
+  "description": "Server Reliability Engineering — monitoring, logs, performance, incidents",
+  "version": "1.0.0",
+  "keywords": ["server","load","cpu","memory","disk","nginx","mysql","redis","health","uptime"],
+  "category": "devops"
 }

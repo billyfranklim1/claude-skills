@@ -1,5 +1,7 @@
 {
   "name": "meta-ads-advanced",
-  "description": "Advanced Meta Ads — Andromeda AI, Advantage+, CAPI/EMQ, creative testing, benchmarks",
-  "version": "1.0.0"
+  "description": "Advanced Meta Ads 2026 strategies — Andromeda AI, Advantage+, CAPI/EMQ, creative testing",
+  "version": "1.0.0",
+  "keywords": ["meta ads","facebook ads","instagram ads","andromeda","advantage plus","capi","creative testing","roas","cpa"],
+  "category": "marketing"
 }

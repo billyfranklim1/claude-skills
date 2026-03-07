@@ -1,5 +1,7 @@
 {
   "name": "api-troubleshooting",
-  "description": "Debug external and internal API failures — timeouts, rate limits, auth, webhooks, latency, retries",
-  "version": "1.0.0"
+  "description": "Debug external and internal API failures — timeouts, rate limits, authentication, webhooks",
+  "version": "1.0.0",
+  "keywords": ["api","timeout","rate limit","webhook","curl","retry","429","401","500","integration"],
+  "category": "devops"
 }

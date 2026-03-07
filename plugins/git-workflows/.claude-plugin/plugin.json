@@ -1,5 +1,7 @@
 {
   "name": "git-workflows",
-  "description": "Advanced Git operations — rebase, bisect, worktrees, reflog, subtrees, cherry-pick",
-  "version": "1.0.0"
+  "description": "Advanced Git operations — rebase, bisect, worktrees, reflog recovery, cherry-pick",
+  "version": "1.0.0",
+  "keywords": ["rebase","bisect","worktree","reflog","cherry-pick","merge conflict","squash","force push"],
+  "category": "development"
 }

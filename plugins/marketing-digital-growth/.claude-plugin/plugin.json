@@ -1,5 +1,7 @@
 {
   "name": "marketing-digital-growth",
-  "description": "Digital marketing strategist — paid ads, funnels, growth hacking, email marketing, SEO",
-  "version": "1.0.0"
+  "description": "Senior digital marketing strategist — paid traffic, growth hacking, multi-platform Ads",
+  "version": "1.0.0",
+  "keywords": ["marketing","growth","strategy","funnel","onboarding","trial","conversion","churn","retention"],
+  "category": "marketing"
 }

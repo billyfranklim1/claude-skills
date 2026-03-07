@@ -1,5 +1,7 @@
 {
   "name": "image-gen",
-  "description": "Generate images, photos, icons, diagrams, thumbnails, banners, and visual assets",
-  "version": "1.0.0"
+  "description": "Generate images, icons, diagrams, thumbnails, and visual content using Gemini CLI",
+  "version": "1.0.0",
+  "keywords": ["image","generate","photo","icon","diagram","thumbnail","banner","illustration","visual"],
+  "category": "productivity"
 }

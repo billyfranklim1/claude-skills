@@ -1,5 +1,7 @@
 {
   "name": "cron-scheduling",
   "description": "Schedule and manage recurring tasks with cron and systemd timers",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "keywords": ["cron","crontab","schedule","timer","systemd timer","recurring","job","periodic"],
+  "category": "devops"
 }

@@ -1,5 +1,7 @@
 {
   "name": "load-balancing",
-  "description": "Nginx load balancing — upstream, health checks, zero-downtime deploy, scaling",
-  "version": "1.0.0"
+  "description": "Nginx load balancing — upstream config, health checks, zero-downtime deploy, horizontal scaling",
+  "version": "1.0.0",
+  "keywords": ["load balance","upstream","proxy","reverse proxy","round robin","failover","health check","502"],
+  "category": "devops"
 }

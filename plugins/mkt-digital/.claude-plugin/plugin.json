@@ -1,5 +1,7 @@
 {
   "name": "mkt-digital",
-  "description": "Digital marketing — paid traffic, Meta/Google Ads, funnels, copywriting, metrics, SEO",
-  "version": "1.0.0"
+  "description": "Digital marketing, paid traffic, growth, Meta Ads, Google Ads, funnels, copy, metrics, SEO",
+  "version": "1.0.0",
+  "keywords": ["marketing","ads","meta","google","funnel","copy","roas","cpa","ctr","lead","conversion"],
+  "category": "marketing"
 }

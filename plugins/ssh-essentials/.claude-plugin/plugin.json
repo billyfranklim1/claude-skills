@@ -1,5 +1,7 @@
 {
   "name": "ssh-essentials",
-  "description": "SSH — key management, port forwarding, tunneling, file transfers, config best practices",
-  "version": "1.0.0"
+  "description": "Essential SSH commands — key management, port forwarding, tunneling, file transfers",
+  "version": "1.0.0",
+  "keywords": ["ssh","scp","rsync","key","authorized_keys","port forwarding","tunnel","bastion","ssh config"],
+  "category": "security"
 }

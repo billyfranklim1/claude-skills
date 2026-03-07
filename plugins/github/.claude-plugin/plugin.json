@@ -1,5 +1,7 @@
 {
   "name": "github",
-  "description": "GitHub CLI — issues, PRs, actions, workflows, releases, and API queries",
-  "version": "1.0.0"
+  "description": "GitHub CLI operations — issues, pull requests, CI/CD runs, releases, API queries using gh",
+  "version": "1.0.0",
+  "keywords": ["github","gh","issue","pull request","pr","actions","workflow","release","ci","review"],
+  "category": "development"
 }

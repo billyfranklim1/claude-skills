@@ -1,5 +1,7 @@
 {
   "name": "sql-toolkit",
-  "description": "Query, design, migrate, and optimize SQL databases — SQLite, PostgreSQL, MySQL",
-  "version": "1.0.0"
+  "description": "Query, design, migrate, and optimize SQL databases — schema design, queries, indexing",
+  "version": "1.0.0",
+  "keywords": ["sql","query","select","join","index","migration","schema","sqlite","postgresql","mysql"],
+  "category": "database"
 }

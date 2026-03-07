@@ -1,5 +1,7 @@
 {
   "name": "monitoring-alerting",
-  "description": "Grafana alerts, Loki LogQL, SLO dashboards, Telegram notifications",
-  "version": "1.0.0"
+  "description": "Grafana alerts, Loki LogQL, SLO dashboards, Telegram contact points, alerting rules",
+  "version": "1.0.0",
+  "keywords": ["grafana","loki","logql","alert","dashboard","slo","promtail","telegram","observability"],
+  "category": "monitoring"
 }
