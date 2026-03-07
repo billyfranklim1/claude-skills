@@ -13,8 +13,8 @@ description: Diagnose slow queries, index tables, analyze EXPLAIN plans, tune My
 
 ## Contexto
 Servidor: MySQL 8.0.44, porta 3306, bind 127.0.0.1 (hardened)
-Databases: `reino`, `hubnews`, `work8`, `neuralnets`, `ece`
-Users app: `reino_app`, `hubnews_app`, `work8_app`, `ece_app` @localhost
+Databases: `myapp_db`, `news_db`, `work_db`, `nn_db`, `extra_db`
+Users app: `app1_user`, `app2_user`, `app3_user`, `app4_user` @localhost
 User backup: `backup_sre`@localhost (SELECT only)
 Laravel apps usam Eloquent — N+1 é o problema mais comum
 Redis disponível para cache de queries pesadas
@@ -54,13 +54,13 @@ tail -50 /var/log/mysql/slow.log
 ### 3. EXPLAIN — Analisar Plano de Execução
 ```bash
 # Formato tabela (básico)
-mysql reino -e "EXPLAIN SELECT * FROM membros WHERE status = 'ativo' AND igreja_id = 1\G"
+mysql myapp_db -e "EXPLAIN SELECT * FROM users WHERE status = 'ativo' AND entity_id = 1\G"
 
 # Formato JSON (mais detalhado — mostra cost estimates)
-mysql reino -e "EXPLAIN FORMAT=JSON SELECT ...\G"
+mysql myapp_db -e "EXPLAIN FORMAT=JSON SELECT ...\G"
 
 # Com análise real de execução (MySQL 8+)
-mysql reino -e "EXPLAIN ANALYZE SELECT ...\G"
+mysql myapp_db -e "EXPLAIN ANALYZE SELECT ...\G"
 ```
 
 **Red flags no EXPLAIN:**
@@ -75,13 +75,13 @@ mysql reino -e "EXPLAIN ANALYZE SELECT ...\G"
 ### 4. Criar Índices Seguros em Produção
 ```bash
 # Ver índices existentes
-mysql reino -e "SHOW INDEX FROM membros\G"
+mysql myapp_db -e "SHOW INDEX FROM users\G"
 
 # Índice simples
-mysql reino -e "ALTER TABLE membros ADD INDEX idx_status_igreja (status, igreja_id);"
+mysql myapp_db -e "ALTER TABLE users ADD INDEX idx_status_entity (status, entity_id);"
 
 # Índice sem travar tabela (MySQL 8 default, mas explícito)
-mysql reino -e "ALTER TABLE membros ADD INDEX idx_email (email) ALGORITHM=INPLACE, LOCK=NONE;"
+mysql myapp_db -e "ALTER TABLE users ADD INDEX idx_email (email) ALGORITHM=INPLACE, LOCK=NONE;"
 
 # Ver tamanho das tabelas (priorizar indexação nas grandes)
 mysql -e "
@@ -90,21 +90,21 @@ SELECT table_schema, table_name,
   ROUND(index_length/1024/1024,2) AS index_mb,
   table_rows
 FROM information_schema.tables
-WHERE table_schema IN ('reino','hubnews','work8')
+WHERE table_schema IN ('myapp_db','news_db','work_db')
 ORDER BY data_length DESC LIMIT 20;"
 ```
 
 ### 5. Detectar N+1 no Laravel
 ```bash
 # Ativar query log temporário no projeto
-cd /home/deploy/sistemareino.com.br
+cd /home/deploy/myapp
 sudo -u deploy php artisan tinker --execute="
 DB::listen(fn(\$q) => logger(\$q->sql));
 // agora faça a request que está lenta
 "
 
 # Ou via Telescope (se instalado)
-mysql reino -e "SELECT COUNT(*) FROM telescope_entries WHERE type='query' AND created_at > NOW() - INTERVAL 1 HOUR;"
+mysql myapp_db -e "SELECT COUNT(*) FROM telescope_entries WHERE type='query' AND created_at > NOW() - INTERVAL 1 HOUR;"
 
 # N+1 clássico: >50 queries idênticas variando só o ID
 tail -200 storage/logs/laravel.log | grep "select \* from" | sort | uniq -c | sort -rn | head -20
@@ -153,12 +153,12 @@ mysql -e "KILL <PID>;"          # Encerra conexão inteira
 ### 9. Cache com Redis para Queries Pesadas (Laravel)
 ```php
 // Em vez de query direta, usar cache
-$stats = Cache::remember("igreja_{$id}_stats", 300, function() use ($id) {
-    return Igreja::withCount(['membros', 'eventos'])->find($id);
+$stats = Cache::remember("entity_{$id}_stats", 300, function() use ($id) {
+    return Entity::withCount(['users', 'eventos'])->find($id);
 });
 
 // Invalidar ao salvar
-Cache::forget("igreja_{$id}_stats");
+Cache::forget("entity_{$id}_stats");
 ```
 
 ### 10. Monitorar via Grafana/Loki
@@ -176,8 +176,8 @@ count_over_time({job="mysql"} |= "deadlock" [1h])
 
 **NUNCA** mudar `innodb_buffer_pool_size` sem restart do MySQL (não é runtime no 8.0 com múltiplos chunks sem cuidado).
 
-**Cuidado com `ALTER TABLE` em tabelas grandes** (membros, noticias com >500k rows) — usar `pt-online-schema-change` ou `gh-ost` se disponível, ou fazer em janela de baixo tráfego.
+**Cuidado com `ALTER TABLE` em tabelas grandes** (users, noticias com >500k rows) — usar `pt-online-schema-change` ou `gh-ost` se disponível, ou fazer em janela de baixo tráfego.
 
 **Laravel Telescope** é o jeito mais fácil de ver N+1 — instalar em staging ao menos.
 
-**Índices compostos**: ordem importa. `(status, igreja_id)` serve para `WHERE status = X` e `WHERE status = X AND igreja_id = Y`, mas NÃO para `WHERE igreja_id = Y` sozinho.
+**Índices compostos**: ordem importa. `(status, entity_id)` serve para `WHERE status = X` e `WHERE status = X AND entity_id = Y`, mas NÃO para `WHERE entity_id = Y` sozinho.

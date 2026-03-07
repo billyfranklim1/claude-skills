@@ -7,8 +7,8 @@ description: Grafana alerts, Loki LogQL advanced queries, SLO dashboards, Telegr
 
 ## Quando Usar
 - Criar ou debugar alertas no Grafana que não estão disparando (ou disparando demais)
-- Escrever LogQL para encontrar padrões de erro em produção antes que o Billy perceba
-- Construir dashboard de SLO para um projeto novo (Papeou, Sistema Reino, HubNews)
+- Escrever LogQL para encontrar padrões de erro em produção antes que o the owner perceba
+- Construir dashboard de SLO para um projeto novo
 
 ## Contexto
 
@@ -53,12 +53,12 @@ sum by (filename) (
   | line_format "{{.status}} {{.agent}}"
 
 # Erros específicos por projeto
-{job="laravel", filename=~".*api.hubnews.*"} 
+{job="laravel", filename=~".*api-myapp.*"} 
   |= "ERROR" 
   | json 
   | line_format "{{.message}}"
 
-# Timeouts Nginx → Next.js (HubNews crawler problem)
+# Timeouts Nginx → Next.js (NewsApp crawler problem)
 {job="nginx"} |= "timed out" |= "upstream" |= "3001"
 
 # OOM kills (crítico — detecta memory leaks)
@@ -75,8 +75,8 @@ sum by (filename) (
 # Erros de queue/job Laravel
 {job="laravel"} |= "CRITICAL" |~ "job.*failed|exception.*queue"
 
-# Monitor HubNews pipeline — falhas de processamento
-{job="laravel", filename=~".*api.hubnews.*"} 
+# Monitor NewsApp pipeline — falhas de processamento
+{job="laravel", filename=~".*api-myapp.*"} 
   |= "ERROR" 
   |~ "Curator|Writer|FactChecker|Translator|Gemini"
 ```
@@ -93,7 +93,7 @@ curl -s -X POST "$GRAFANA/api/v1/provisioning/contact-points" \
   -u "$GRAFANA_AUTH" \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "telegram-billy",
+    "name": "telegram-alerts",
     "type": "telegram",
     "settings": {
       "botToken": "'"$TELEGRAM_BOT_TOKEN"'",
@@ -131,9 +131,9 @@ curl -s -X POST "$GRAFANA/api/alertmanager/grafana/api/v2/silences" \
   count_over_time({job="nginx"} [5m])
 ) * 100
 
-# Taxa de falhas Horizon/Queue (HubNews)
+# Taxa de falhas Horizon/Queue (NewsApp)
 count_over_time(
-  {job="laravel", filename=~".*api.hubnews.*"} 
+  {job="laravel", filename=~".*api-myapp.*"} 
   |= "CRITICAL" 
   |~ "failed|exception" [10m]
 )
@@ -152,7 +152,7 @@ curl -s http://localhost:9080/targets | python3 -m json.tool | grep -A3 "health"
 journalctl -u promtail --since "30 minutes ago" --no-pager | tail -50
 
 # Testar pipeline de um log específico
-cat /home/deploy/api.hubnews.ai/storage/logs/laravel.log | tail -5
+cat /home/deploy/api-myapp/storage/logs/laravel.log | tail -5
 
 # Verificar Loki está recebendo
 curl -s "http://localhost:3100/loki/api/v1/query?query={job=\"laravel\"}&limit=1" | jq .
@@ -189,7 +189,7 @@ done
 | NginxHighErrors | Taxa 5xx > 1% em 5min | warning |
 | OOMKill | `{job="syslog"} \|= "Out of memory"` qualquer ocorrência | critical |
 | SSHBruteForce | `count_over_time({job="auth"} \|= "Failed password" [5m]) > 20` | warning |
-| HubNewsPipeline | Sem entries `WriterAgent` em 2h (pipeline parado) | warning |
+| NewsAppPipeline | Sem entries `WriterAgent` em 2h (pipeline parado) | warning |
 
 ---
 

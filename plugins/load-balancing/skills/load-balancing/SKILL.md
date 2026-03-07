@@ -13,9 +13,9 @@ description: Load balancing with Nginx, upstream, health checks, zero-downtime d
 ## Contexto do Servidor
 
 Apps atuais que podem se beneficiar de load balancing:
-- **thehubnews.ai** (Next.js) — porta 3001 (pode escalar pra 3003, 3004...)
-- **neuralnets.com.br** (Next.js) — porta 8080
-- **billy.dev.br** (Next.js) — porta 3002
+- **frontend.example.com** (Next.js) — porta 3001 (pode escalar pra 3003, 3004...)
+- **neuralnets.example.com** (Next.js) — porta 8080
+- **portfolio.example.com** (Next.js) — porta 3002
 - **Laravel apps** — via PHP-FPM pools (já faz balanceamento interno via workers)
 
 Nginx config: `/etc/nginx/sites-available/`
@@ -26,8 +26,8 @@ Nginx principal: `/etc/nginx/nginx.conf`
 ### 1. Upstream Basico (Round Robin)
 
 ```nginx
-# /etc/nginx/sites-available/thehubnews.ai
-upstream thehubnews_backend {
+# /etc/nginx/sites-available/frontend.example.com
+upstream frontend_backend {
     server 127.0.0.1:3001;
     server 127.0.0.1:3003;
     server 127.0.0.1:3004;
@@ -37,10 +37,10 @@ upstream thehubnews_backend {
 
 server {
     listen 443 ssl;
-    server_name www.hubnews.ai;
+    server_name www.myapp.example.com;
 
     location / {
-        proxy_pass http://thehubnews_backend;
+        proxy_pass http://frontend_backend;
         proxy_http_version 1.1;
         proxy_set_header Connection "";
         proxy_set_header Host $host;
@@ -54,7 +54,7 @@ server {
 ### 2. Upstream com Peso e Health Check
 
 ```nginx
-upstream thehubnews_backend {
+upstream frontend_backend {
     server 127.0.0.1:3001 weight=3;          # recebe 3x mais trafego
     server 127.0.0.1:3003 weight=1;
     server 127.0.0.1:3004 backup;            # so entra se os outros cairem
@@ -98,19 +98,19 @@ upstream app {
 
 # 1. Tirar uma instancia do upstream
 # Marcar como "down" no nginx config
-sed -i 's/server 127.0.0.1:3003;/server 127.0.0.1:3003 down;/' /etc/nginx/sites-available/thehubnews.ai
+sed -i 's/server 127.0.0.1:3003;/server 127.0.0.1:3003 down;/' /etc/nginx/sites-available/frontend.example.com
 nginx -t && systemctl reload nginx
 
 # 2. Fazer deploy na instancia parada
-cd /home/deploy/thehubnews.ai-b
+cd /home/deploy/frontend-b
 sudo -u deploy git pull && sudo -u deploy npm ci && sudo -u deploy npm run build
-sudo -u deploy pm2 restart thehubnews-b
+sudo -u deploy pm2 restart frontend-b
 
 # 3. Testar a instancia atualizada
 curl -s http://127.0.0.1:3003/health
 
 # 4. Recolocar no upstream
-sed -i 's/server 127.0.0.1:3003 down;/server 127.0.0.1:3003;/' /etc/nginx/sites-available/thehubnews.ai
+sed -i 's/server 127.0.0.1:3003 down;/server 127.0.0.1:3003;/' /etc/nginx/sites-available/frontend.example.com
 nginx -t && systemctl reload nginx
 
 # 5. Repetir para a outra instancia
@@ -120,11 +120,11 @@ nginx -t && systemctl reload nginx
 
 ```bash
 # Forma simples: PM2 cluster mode (sem precisar de upstream manual)
-cd /home/deploy/thehubnews.ai
+cd /home/deploy/frontend
 sudo -u deploy pm2 start ecosystem.config.js -i 2  # 2 instancias
 
 # Ou via systemd (criar 2 services apontando pra portas diferentes)
-# thehubnews-3001.service e thehubnews-3003.service
+# frontend-3001.service e frontend-3003.service
 ```
 
 ### 6. Rate Limiting por Backend
@@ -157,7 +157,7 @@ curl http://127.0.0.1/nginx_status
 # 502 Bad Gateway = todos os backends falharam
 # Verificar: processos rodando? Portas escutando? Logs do backend?
 ss -tlnp | grep -E '3001|3003'
-journalctl -u thehubnews --since "5 min ago" --no-pager
+journalctl -u frontend --since "5 min ago" --no-pager
 ```
 
 ## Observacoes

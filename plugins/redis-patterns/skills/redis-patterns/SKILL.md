@@ -19,9 +19,9 @@ Servidor usa Redis 7.2.5 (porta 6379, bind 127.0.0.1, com senha — ver `/etc/re
 **Quem usa Redis neste servidor:**
 | App | DB | Uso | Prefix |
 |-----|-----|-----|--------|
-| `api.hubnews.ai` | 0 | cache + filas Horizon + Pulse | `hubnews_` |
-| `sistemareino.com.br` | 0 | cache + sessões + email queue | `reino_` |
-| `work8.billy.dev.br` | 0 | cache + filas Horizon | `work8_` |
+| `api.myapp.example.com` | 0 | cache + filas Horizon + Pulse | `news_` |
+| `myapp.example.com` | 0 | cache + sessões + email queue | `myapp_` |
+| `work8.example.com` | 0 | cache + filas Horizon | `work_` |
 | Supervisor workers | 0 | job queue genérico | variado |
 
 Configs Laravel em `.env` de cada projeto:
@@ -29,7 +29,7 @@ Configs Laravel em `.env` de cada projeto:
 REDIS_HOST=127.0.0.1
 REDIS_PORT=6379
 REDIS_PASSWORD=<senha>
-CACHE_PREFIX=hubnews_   # ou reino_, work8_
+CACHE_PREFIX=news_   # ou myapp_, work_
 CACHE_DRIVER=redis
 SESSION_DRIVER=redis
 QUEUE_CONNECTION=redis
@@ -66,9 +66,9 @@ redis-cli -a $REDIS_PASS INFO stats | grep -E "keyspace_hits|keyspace_misses" | 
   }'
 
 # Quantas keys por padrão de prefix
-redis-cli -a $REDIS_PASS --scan --pattern "hubnews_*" | wc -l
-redis-cli -a $REDIS_PASS --scan --pattern "reino_*" | wc -l
-redis-cli -a $REDIS_PASS --scan --pattern "work8_*" | wc -l
+redis-cli -a $REDIS_PASS --scan --pattern "news_*" | wc -l
+redis-cli -a $REDIS_PASS --scan --pattern "myapp_*" | wc -l
+redis-cli -a $REDIS_PASS --scan --pattern "work_*" | wc -l
 ```
 
 ### 2. Memória — Diagnóstico e Eviction
@@ -101,17 +101,17 @@ redis-cli -a $REDIS_PASS CONFIG SET maxmemory 4gb
 
 # Flush apenas de um projeto específico
 REDIS_PASS=$(grep '^requirepass' /etc/redis/redis.conf | awk '{print $2}')
-PREFIX="reino_"  # ou hubnews_, work8_
+PREFIX="myapp_"  # ou news_, work_
 
 redis-cli -a $REDIS_PASS --scan --pattern "${PREFIX}*" | \
   xargs -r redis-cli -a $REDIS_PASS DEL
 
 # Ou via Laravel artisan (mais seguro — usa o prefix do .env)
-cd /home/deploy/sistemareino.com.br
+cd /home/deploy/myapp
 sudo -u deploy php artisan cache:clear  # só apaga cache, não sessões nem filas
 
-# Para HubNews
-cd /home/deploy/api.hubnews.ai
+# Para NewsApp
+cd /home/deploy/api-myapp
 sudo -u deploy php artisan cache:clear
 ```
 
@@ -121,15 +121,15 @@ sudo -u deploy php artisan cache:clear
 # Status das filas (quantos jobs pendentes, failed, etc.)
 REDIS_PASS=$(grep '^requirepass' /etc/redis/redis.conf | awk '{print $2}')
 
-# Jobs em queue (HubNews usa prefix hubnews_)
-redis-cli -a $REDIS_PASS LLEN "hubnews_queues:default"
-redis-cli -a $REDIS_PASS LLEN "hubnews_queues:news-processing"
+# Jobs em queue (NewsApp usa prefix news_)
+redis-cli -a $REDIS_PASS LLEN "news_queues:default"
+redis-cli -a $REDIS_PASS LLEN "news_queues:news-processing"
 
 # Jobs failed (armazenados como hash)
-redis-cli -a $REDIS_PASS --scan --pattern "hubnews_*failed*" | head -20
+redis-cli -a $REDIS_PASS --scan --pattern "news_*failed*" | head -20
 
 # Via Artisan (mais amigável)
-cd /home/deploy/api.hubnews.ai
+cd /home/deploy/api-myapp
 sudo -u deploy php artisan queue:monitor default,news-processing
 sudo -u deploy php artisan horizon:status
 
@@ -146,14 +146,14 @@ sudo -u deploy php artisan queue:retry all
 REDIS_PASS=$(grep '^requirepass' /etc/redis/redis.conf | awk '{print $2}')
 
 # Contar sessões ativas por projeto
-redis-cli -a $REDIS_PASS --scan --pattern "reino_*session*" | wc -l
+redis-cli -a $REDIS_PASS --scan --pattern "myapp_*session*" | wc -l
 
 # Inspecionar uma sessão específica (substituir <key>)
-redis-cli -a $REDIS_PASS GET "reino_<session_key>"
-redis-cli -a $REDIS_PASS TTL "reino_<session_key>"  # tempo restante em segundos
+redis-cli -a $REDIS_PASS GET "myapp_<session_key>"
+redis-cli -a $REDIS_PASS TTL "myapp_<session_key>"  # tempo restante em segundos
 
 # Se sessões expirando cedo: verificar TTL configurado
-grep SESSION_LIFETIME /home/deploy/sistemareino.com.br/.env  # em minutos
+grep SESSION_LIFETIME /home/deploy/myapp/.env  # em minutos
 ```
 
 ### 6. Monitoramento em Tempo Real
@@ -175,7 +175,7 @@ redis-cli -a $REDIS_PASS CONFIG SET slowlog-log-slower-than 10000  # microsegund
 redis-cli -a $REDIS_PASS --latency-history -i 5  # amostras a cada 5s
 
 # Watch de uma key específica (debug de cache)
-watch -n 1 "redis-cli -a $REDIS_PASS TTL 'hubnews_artigo_123' && redis-cli -a $REDIS_PASS OBJECT encoding 'hubnews_artigo_123'"
+watch -n 1 "redis-cli -a $REDIS_PASS TTL 'news_artigo_123' && redis-cli -a $REDIS_PASS OBJECT encoding 'news_artigo_123'"
 ```
 
 ### 7. Padrões de Cache Laravel — Boas Práticas
@@ -224,7 +224,7 @@ redis-cli -a $REDIS_PASS PUBSUB CHANNELS "*"
 redis-cli -a $REDIS_PASS PUBSUB NUMSUB  # subscribers por canal
 
 # Subscrever para debug (Ctrl+C para sair)
-redis-cli -a $REDIS_PASS SUBSCRIBE "hubnews_laravel_database_events"
+redis-cli -a $REDIS_PASS SUBSCRIBE "news_laravel_database_events"
 ```
 
 ### 9. Persistência e Backup
@@ -248,11 +248,11 @@ redis-cli -a $REDIS_PASS INFO persistence | grep -E "rdb_|aof_"
 ```bash
 # ANTES de reiniciar: verificar se tem jobs críticos rodando
 REDIS_PASS=$(grep '^requirepass' /etc/redis/redis.conf | awk '{print $2}')
-redis-cli -a $REDIS_PASS LLEN "hubnews_queues:news-processing"
+redis-cli -a $REDIS_PASS LLEN "news_queues:news-processing"
 
 # Parar workers do Horizon primeiro
-cd /home/deploy/api.hubnews.ai && sudo -u deploy php artisan horizon:terminate
-supervisorctl stop daemon-547099:*
+cd /home/deploy/api-myapp && sudo -u deploy php artisan horizon:terminate
+supervisorctl stop daemon-XXXXX:*
 
 # Salvar snapshot antes
 redis-cli -a $REDIS_PASS BGSAVE && sleep 2
@@ -265,7 +265,7 @@ redis-cli -a $REDIS_PASS ping
 redis-cli -a $REDIS_PASS INFO keyspace
 
 # Restartar Horizon
-supervisorctl start daemon-547099:*
+supervisorctl start daemon-XXXXX:*
 ```
 
 ## Observacoes
@@ -280,6 +280,6 @@ supervisorctl start daemon-547099:*
 
 **Fragmentation ratio** > 1.5 indica fragmentação alta — considerar `MEMORY PURGE` (Redis 4+) ou restart em janela de manutenção.
 
-**Horizon dashboard** (se habilitado): `https://api.hubnews.ai/horizon` — mostra métricas de throughput, jobs/min, failed jobs em tempo real.
+**Horizon dashboard** (se habilitado): `https://api.myapp.example.com/horizon` — mostra métricas de throughput, jobs/min, failed jobs em tempo real.
 
-**Cache stampede**: em rotas de alta concorrência (HubNews homepage), usar `Cache::lock()` ou `Cache::flexible()` (Laravel 11+) para evitar que múltiplas requisições rebuildem o mesmo cache simultaneamente.
+**Cache stampede**: em rotas de alta concorrência (NewsApp homepage), usar `Cache::lock()` ou `Cache::flexible()` (Laravel 11+) para evitar que múltiplas requisições rebuildem o mesmo cache simultaneamente.

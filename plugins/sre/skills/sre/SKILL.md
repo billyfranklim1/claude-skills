@@ -8,7 +8,7 @@ description: Server, services, logs, errors, performance, load, memory, disk, pr
 Quando o usuario perguntar sobre servidor, servicos, logs, erros, performance, load, memoria, disco, processos.
 
 ## Contexto
-- Servidor: harmonious-cliff (Ubuntu 22.04, 4 vCPUs, 16GB RAM)
+- Servidor: my-server (Ubuntu 22.04, 4 vCPUs, 16GB RAM)
 - Servicos: Nginx 1.26, MySQL 8.0, Redis 7.2, PHP-FPM 8.0/8.3/8.4
 - Process managers: Supervisor (Laravel workers), PM2 (Next.js apps)
 - Observability: Grafana:3000, Loki:3100, Promtail:9080
@@ -30,7 +30,7 @@ pm2 jlist
 # Logs
 tail -100 /var/log/nginx/error.log
 journalctl -u mysql --since "1 hour ago" --no-pager
-tail -100 /home/forge/.forge/daemon-547099.log
+tail -100 /home/deploy/.daemon-logs/daemon-XXXXX.log
 
 # Processos pesados
 ps aux --sort=-%cpu | head -10

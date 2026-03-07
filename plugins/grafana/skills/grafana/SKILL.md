@@ -66,7 +66,7 @@ sum by (app) (count_over_time({job="laravel"} |= "ERROR" [1h]))
 {job="nginx"} | regexp `"(?P<status>\d{3})"` | status >= 500
 
 # Timeout Next.js
-{job="nginx"} |= "timed out" |= "hubnews"
+{job="nginx"} |= "timed out" |= "myapp"
 
 # Top IPs com erros
 {job="nginx"} |= "error" | regexp `(?P<ip>[\d.]+)` | count by (ip) > 10

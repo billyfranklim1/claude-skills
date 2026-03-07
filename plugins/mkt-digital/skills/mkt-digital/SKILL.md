@@ -5,25 +5,25 @@ description: Digital marketing, paid traffic, growth, Meta Ads, Google Ads, funn
 
 # Skill: Marketing Digital & Growth
 
-## Contexto dos Projetos do Billy
+## Contexto dos Projetos
 
-### HubNews.ai — Newsletter tech AI
+### NewsApp — Newsletter tech AI
 - **Produto**: Agregador de notícias tech com IA, newsletter semanal
 - **Público**: Devs, tech founders, early adopters BR + global
 - **Modelo**: Freemium. Newsletter gratuita + planos premium (ads, destaques)
-- **Meta Ads**: act_861494046890126 | Pixel: 1732385114387631
-- **Campanha ativa**: `META_LEADS_Newsletter_2026Q1` — OUTCOME_LEADS, R$15/dia
+- **Meta Ads**: act_XXXXXXXXXXXX | Pixel: XXXXXXXXXXXX
+- **Campanha ativa**: `META_LEADS_Newsletter` — OUTCOME_LEADS, R$15/dia
 - **CAPI**: Implementado (`MetaConversionsService.php`) com fbc+fbp+external_id
-- **Posicionamento**: "O TechCrunch do Brasil com IA"
+- **Posicionamento**: "Curadoria de notícias tech com IA"
 
-### Sistema Reino — SaaS gestão de igrejas
-- **Produto**: Plataforma completa para igrejas (membros, financeiro, agenda, relatórios)
-- **Público**: Pastores, líderes administrativos, secretarias de igrejas BR
+### MyApp — SaaS vertical
+- **Produto**: Plataforma SaaS vertical (gestão de entidades, financeiro, agenda, relatórios)
+- **Público**: Gestores administrativos BR
 - **Modelo**: SaaS mensal. Trial 14 dias → paywall
-- **Meta Ads**: act_929915686667399 | R$30/dia
+- **Meta Ads**: act_XXXXXXXXXXXX | R$30/dia
 - **Campanha ativa**: Funil completo — Meta Ads → /cadastrar → trial → 7 emails → paywall
-- **Email sequence**: 7 emails (dia 0,3,7,10,13,14,21) via SMTP Hostinger + Redis queue
-- **Posicionamento**: "O sistema que pastores precisam, sem complicação"
+- **Email sequence**: 7 emails (dia 0,3,7,10,13,14,21) via SMTP + Redis queue
+- **Posicionamento**: "Gestão simplificada para o seu negócio"
 
 ### Billing
 - 100% Asaas (Pix, Boleto, Cartão). Taxas embutidas no preço.
@@ -59,9 +59,9 @@ Campanha → Objetivo (Leads / Conversions / Traffic)
 ## Boas Práticas Copy
 
 ### Hook (primeiros 3 segundos)
-- Dor: "Você ainda gerencia sua igreja em planilha?"
-- Curiosidade: "O que os pastores mais bem organizados do BR usam"
-- Benefício direto: "Controle total da sua igreja em 5 minutos"
+- Dor: "Você ainda gerencia seu negócio em planilha?"
+- Curiosidade: "O que os gestores mais organizados do BR usam"
+- Benefício direto: "Controle total do seu negócio em 5 minutos"
 
 ### Estrutura de copy que converte
 1. Hook (para o scroll)
@@ -81,16 +81,15 @@ Campanha → Objetivo (Leads / Conversions / Traffic)
 
 ```bash
 # Ver métricas das campanhas (via MCP Pipeboard ou Meta API)
-# Token: $META_ADS_TOKEN (em /root/.bashrc), expira 21/04/2026
+# Token: $META_ADS_TOKEN (em /root/.bashrc)
 
 # Contas:
-# HubNews:      act_861494046890126
-# Sistema Reino: act_929915686667399
-# Billy:         act_115573148566140
-# Onde Tá o Link: act_209610431149383
+# NewsApp:  act_XXXXXXXXXXXX
+# MyApp:    act_XXXXXXXXXXXX
+# Personal: act_XXXXXXXXXXXX
 ```
 
 ## Integrações Ativas
-- **Meta CAPI**: HubNews — server-side events com deduplicação pixel+CAPI
+- **Meta CAPI**: NewsApp — server-side events com deduplicação pixel+CAPI
 - **Asaas**: Webhooks de pagamento → events de compra para Meta
 - **Email**: Sequência automática via Laravel Queue + Redis

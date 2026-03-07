@@ -2,6 +2,6 @@
   "name": "google-workspace",
   "description": "Google Workspace integration — Drive, Gmail, Calendar, Sheets, Docs, Tasks via gws CLI",
   "version": "1.0.0",
-  "keywords": ["google","drive","gmail","email","calendar","sheets","docs","tasks","workspace"],
+  "keywords": ["google","drive","gmail","email","calendar","sheets","docs","tasks","workspace","gws","agenda","planilha","spreadsheet","documento","slides","tarefas"],
   "category": "productivity"
 }

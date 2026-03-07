@@ -9,7 +9,7 @@ Banco SQLite em `~/.claude/memory/brain.db`. Busca por palavras-chave com rankin
 
 ## Quando usar
 
-- **Salvar**: Ao detectar um padrão recorrente, decisão do Billy, gotcha técnico, ou fato crítico
+- **Salvar**: Ao detectar um padrão recorrente, decisão do the owner, gotcha técnico, ou fato crítico
 - **Buscar**: Antes de agir em algo que pode ter histórico ("já vimos esse erro antes?")
 - **Listar**: Para revisar o que sei sobre um projeto específico
 
@@ -19,15 +19,15 @@ Banco SQLite em `~/.claude/memory/brain.db`. Busca por palavras-chave com rankin
 # Salvar uma memória
 python3 ~/.claude/memory/brain.py add "fato importante" \
   --tags "tag1,tag2" \
-  --project "hubnews|sistemareino|work8|infra|geral" \
+  --project "news|myapp|work8|infra|geral" \
   --importance 3  # 1=baixa, 2=média, 3=crítica
 
 # Buscar por keywords
 python3 ~/.claude/memory/brain.py search "horizon parou"
-python3 ~/.claude/memory/brain.py search "deploy sistemareino"
+python3 ~/.claude/memory/brain.py search "deploy myapp"
 
 # Listar por projeto
-python3 ~/.claude/memory/brain.py list --project hubnews
+python3 ~/.claude/memory/brain.py list --project news
 python3 ~/.claude/memory/brain.py list --tag padrão
 
 # Remover memória obsoleta
@@ -42,7 +42,7 @@ python3 ~/.claude/memory/brain.py stats
 | Tag | Quando usar |
 |-----|-------------|
 | `padrão` | Comportamento recorrente identificado |
-| `decisão` | Escolha explícita do Billy |
+| `decisão` | Escolha explícita do the owner |
 | `crítico` | Regra que NUNCA deve ser violada |
 | `erro` | Bug ou falha conhecida com solução |
 | `deploy` | Procedimento de deploy específico |
@@ -52,7 +52,7 @@ python3 ~/.claude/memory/brain.py stats
 
 ## Projetos
 
-`hubnews` | `sistemareino` | `work8` | `neuralnets` | `infra` | `geral`
+`news` | `myapp` | `work8` | `neuralnets` | `infra` | `geral`
 
 ## Importância
 

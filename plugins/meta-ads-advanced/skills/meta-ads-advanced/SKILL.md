@@ -172,22 +172,22 @@ Em 2025, renomeado para **Advantage+ Sales Campaigns** (expandido para leads e a
 
 ---
 
-## Contexto dos Projetos do Billy
+## Contexto dos Projetos
 
-### HubNews.ai
-- **Conta**: act_861494046890126 | Pixel: 1732385114387631
-- **Campanha ativa**: META_LEADS_Newsletter_2026Q1 — OUTCOME_LEADS, R$15/dia
+### NewsApp
+- **Conta**: act_XXXXXXXXXXXX | Pixel: XXXXXXXXXXXX
+- **Campanha ativa**: META_LEADS_Newsletter — OUTCOME_LEADS, R$15/dia
 - **CAPI**: Implementado (`MetaConversionsService.php`) — fbc+fbp+external_id
 - **CPL target**: < R$5
 
-### Sistema Reino
-- **Conta**: act_929915686667399
+### MyApp (SaaS)
+- **Conta**: act_XXXXXXXXXXXX
 - **Budget**: R$30/dia
 - **Funil**: Meta Ads → /cadastrar → trial 14d → 7 emails → paywall
 - **CPL target**: < R$15
 
 ### Token Meta
-- Expira 27/04/2026. Localizado em `/root/.bashrc` ($META_ADS_TOKEN)
+- Expira periodicamente. Localizado em `/root/.bashrc` ($META_ADS_TOKEN)
 - API Graph v22.0, cache 1h
 
 ---

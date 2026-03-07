@@ -16,9 +16,9 @@ description: Debug Laravel apps in production — N+1 queries, memory leaks, stu
 **Apps ativas neste servidor:**
 | App | PHP | Horizon | Workers Supervisor |
 |-----|-----|---------|-------------------|
-| `api.hubnews.ai` | 8.3 | daemon-547099 | nightwatch(457364), news-processing(295850), pulse(890775) |
-| `sistemareino.com.br` | 8.4 | — | — |
-| `work8.billy.dev.br` | 8.3 | daemon-655935/655941 | — |
-| `ece.billy.dev.br` | 8.x | — | — |
+| `api.myapp.example.com` | 8.3 | daemon-XXXXX | nightwatch(XXXXX), news-processing(XXXXX), pulse(XXXXX) |
+| `myapp.example.com` | 8.4 | — | — |
+| `work8.example.com` | 8.3 | daemon-XXXXX/XXXXX | — |
+| `ece.example.com` | 8.x | — | — |
 
 **Paths críticos:**

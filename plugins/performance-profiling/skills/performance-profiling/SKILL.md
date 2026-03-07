@@ -6,19 +6,19 @@ description: Profile and diagnose performance bottlenecks in PHP/Laravel, Next.j
 # Skill: Performance Profiling — PHP, Next.js e MySQL
 
 ## Quando Usar
-- Uma rota Laravel ou endpoint da `api.hubnews.ai` está lento (>500ms P95) mas logs não revelam a causa
-- `thehubnews.ai` ou `sistemareino.com.br` têm picos de CPU sem query lenta óbvia no MySQL
-- Antes de um lançamento ou campanha de tráfego pago (Meta Ads Sistema Reino), validar que o servidor aguenta a carga
+- Uma rota Laravel ou endpoint da `api.myapp.example.com` está lento (>500ms P95) mas logs não revelam a causa
+- `frontend.example.com` ou `myapp.example.com` têm picos de CPU sem query lenta óbvia no MySQL
+- Antes de um lançamento ou campanha de tráfego pago (Meta Ads MyApp), validar que o servidor aguenta a carga
 
 ## Contexto
 
 **Apps críticas neste servidor:**
 | App | PHP | Workers | Risco de gargalo |
 |-----|-----|---------|-----------------|
-| `api.hubnews.ai` | 8.3 | Horizon + nightwatch | Pipeline AI (GPT/Gemini calls) |
-| `sistemareino.com.br` | 8.4 | – | Queries Eloquent complexas (igrejas/membros) |
-| `thehubnews.ai` | Node 24 / Next.js | systemd | SSR com fetch de API externa |
-| `work8.billy.dev.br` | 8.3 | Horizon | Fila de jobs |
+| `api.myapp.example.com` | 8.3 | Horizon + nightwatch | Pipeline AI (GPT/Gemini calls) |
+| `myapp.example.com` | 8.4 | – | Queries Eloquent complexas (entities/users) |
+| `frontend.example.com` | Node 24 / Next.js | systemd | SSR com fetch de API externa |
+| `work8.example.com` | 8.3 | Horizon | Fila de jobs |
 
 **PHP-FPM pools:**
 - PHP 8.3: `/etc/php/8.3/fpm/pool.d/`
@@ -35,10 +35,10 @@ description: Profile and diagnose performance bottlenecks in PHP/Laravel, Next.j
 ```bash
 # Latência real de endpoints (sem cache)
 curl -o /dev/null -s -w "DNS:%{time_namelookup} Connect:%{time_connect} TTFB:%{time_starttransfer} Total:%{time_total}\n" \
-  https://api.hubnews.ai/health
+  https://api.myapp.example.com/health
 
 curl -o /dev/null -s -w "TTFB:%{time_starttransfer} Total:%{time_total}\n" \
-  https://sistemareino.com.br/
+  https://myapp.example.com/
 
 # PHP-FPM: workers ativos vs max
 php-fpm8.4 -tt 2>&1 | grep "pm.max_children"
@@ -57,16 +57,16 @@ mysql -e "SHOW PROCESSLIST;" | grep -v Sleep | head -20
 ```bash
 # Teste de throughput — 100 requests, 10 concorrentes
 ab -n 100 -c 10 -H "Accept-Encoding: gzip" \
-  https://sistemareino.com.br/ 2>&1 | grep -E "Requests per|Time per|Failed"
+  https://myapp.example.com/ 2>&1 | grep -E "Requests per|Time per|Failed"
 
 # Teste de API autenticada (com header)
 ab -n 50 -c 5 \
   -H "Authorization: Bearer <TOKEN>" \
   -H "Accept: application/json" \
-  https://api.hubnews.ai/api/news 2>&1 | tail -20
+  https://api.myapp.example.com/api/news 2>&1 | tail -20
 
 # Endpoint de cadastro (simular campanha Meta Ads)
-ab -n 200 -c 20 https://sistemareino.com.br/cadastrar 2>&1 | \
+ab -n 200 -c 20 https://myapp.example.com/cadastrar 2>&1 | \
   grep -E "Requests per|Time per|Failed|50%|95%|99%"
 ```
 
@@ -78,8 +78,8 @@ curl -s https://dl.k6.io/key.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/
 echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
 sudo apt-get update && sudo apt-get install k6 -y
 
-# Script básico /tmp/test-reino.js
-cat > /tmp/test-reino.js << 'EOF'
+# Script básico /tmp/test-myapp.js
+cat > /tmp/test-myapp.js << 'EOF'
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
@@ -96,13 +96,13 @@ export const options = {
 };
 
 export default function () {
-  const res = http.get('https://sistemareino.com.br/');
+  const res = http.get('https://myapp.example.com/');
   check(res, { 'status 200': (r) => r.status === 200 });
   sleep(1);
 }
 EOF
 
-k6 run /tmp/test-reino.js
+k6 run /tmp/test-myapp.js
 ```
 
 ### 4. Profiling PHP com Xdebug (ambiente de debug temporário)
@@ -125,7 +125,7 @@ sudo phpenmod -v 8.4 xdebug
 sudo systemctl restart php8.4-fpm
 
 # Disparar profiling com trigger (parâmetro na URL)
-curl "https://sistemareino.com.br/login?XDEBUG_PROFILE=1" -o /dev/null
+curl "https://myapp.example.com/login?XDEBUG_PROFILE=1" -o /dev/null
 
 # Ver arquivo gerado
 ls -lh /tmp/xdebug-profiles/
@@ -167,21 +167,21 @@ mysql -e "SELECT id, user, host, db, time, state, LEFT(info,100) as query
 ### 6. Profiling Next.js — identificar SSR lento
 
 ```bash
-# Verificar tempo de resposta por rota no thehubnews.ai
+# Verificar tempo de resposta por rota no frontend.example.com
 for path in "/" "/pt" "/pt/news" "/pt/blog"; do
   printf "%-25s" "$path"
-  curl -o /dev/null -s -w "%{time_starttransfer}s\n" "https://thehubnews.ai$path"
+  curl -o /dev/null -s -w "%{time_starttransfer}s\n" "https://frontend.example.com$path"
 done
 
-# Logs do serviço thehubnews (systemd)
-journalctl -u thehubnews --since "10 minutes ago" --no-pager | grep -i "slow\|timeout\|error\|warn"
+# Logs do serviço frontend (systemd)
+journalctl -u frontend --since "10 minutes ago" --no-pager | grep -i "slow\|timeout\|error\|warn"
 
 # Memória do processo Next.js
 ps -o pid,rss,vsz,comm -p $(pgrep -f "next-server.*3001") 2>/dev/null | \
   awk 'NR>1{printf "PID:%s RSS:%.1fMB VSZ:%.1fMB\n", $1, $2/1024, $3/1024}'
 
 # Se o processo estiver acima de 1.5GB → restart preventivo
-sudo -u deploy systemctl --user restart thehubnews || systemctl restart thehubnews
+sudo -u deploy systemctl --user restart frontend || systemctl restart frontend
 ```
 
 ### 7. Verificar gargalo de Redis (cache miss rate)
@@ -228,10 +228,10 @@ watch -n 1 'echo "=LOAD=" && uptime | awk "{print \$10,\$11,\$12}" && \
 **Baseline atual do servidor:**
 - CPU Load normal: 0.6–1.0 (4 vCPUs → crítico > 4.0)
 - Memory normal: ~9.4GB/16GB (58%)
-- PHP-FPM 8.4 pool (`sistemareino`): checar `pm.max_children` — padrão Forge é 10
+- PHP-FPM 8.4 pool (`myapp`): checar `pm.max_children` — padrão é 10
 
-**Para campanhas Meta Ads (Sistema Reino):**
-- Antes de aumentar budget, rodar `ab -n 500 -c 50 https://sistemareino.com.br/cadastrar`
+**Para campanhas Meta Ads (MyApp):**
+- Antes de aumentar budget, rodar `ab -n 500 -c 50 https://myapp.example.com/cadastrar`
 - SLO: P95 < 1s, taxa de erro < 1%
 - Se P95 > 1s: investigar MySQL (N+1 no cadastro) ou aumentar `pm.max_children` no FPM
 

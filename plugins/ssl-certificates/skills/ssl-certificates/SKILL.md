@@ -16,12 +16,12 @@ description: Let's Encrypt, certbot, auto-renewal, wildcard DNS challenge, SSL t
 **Domínios ativos neste servidor:**
 | Domínio | Proxy CF | Tipo Cert |
 |---------|----------|-----------|
-| api.hubnews.ai, thehubnews.ai | ✅ | Standard |
-| sistemareino.com.br, www. | ✅ | Standard |
-| work8.billy.dev.br | ✅ | Standard |
-| billy.dev.br | ✅ | Standard |
-| neuralnets.com.br | ✅ | Standard |
-| papeou.billy.dev.br | ✅ | Standard |
-| *.preview.hubnews.ai | ✅ | **Wildcard DNS-01** |
+| api.myapp.example.com, frontend.example.com | ✅ | Standard |
+| myapp.example.com, www. | ✅ | Standard |
+| work8.example.com | ✅ | Standard |
+| portfolio.example.com | ✅ | Standard |
+| neuralnets.example.com | ✅ | Standard |
+| app.portfolio.example.com | ✅ | Standard |
+| *.preview.myapp.example.com | ✅ | **Wildcard DNS-01** |
 
 **Paths críticos:**
