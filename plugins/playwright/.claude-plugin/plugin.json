@@ -1,0 +1,5 @@
+{
+  "name": "playwright",
+  "description": "Playwright tests and scrapers — selectors, flaky fixes, CI/CD integration",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "mysql-performance",
+  "description": "Diagnose slow queries, index tables, analyze EXPLAIN plans, tune MySQL 8",
+  "version": "1.0.0"
+}

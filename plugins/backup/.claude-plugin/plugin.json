@@ -1,0 +1,5 @@
+{
+  "name": "backup",
+  "description": "Database backup and restore — mysqldump, Cloudflare R2, recovery procedures",
+  "version": "1.0.0"
+}

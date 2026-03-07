@@ -1,0 +1,596 @@
+{
+  "name": "billy-claude-skills",
+  "owner": {
+    "name": "Billy Franklim",
+    "email": "billyfranklim@gmail.com"
+  },
+  "metadata": {
+    "description": "Claude Code skills for SRE, DevOps, marketing, databases, security, and full-stack development",
+    "version": "1.0.0",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "agent-memory",
+      "source": "./agent-memory",
+      "description": "Persistent semantic memory for saving facts, patterns, and decisions across sessions",
+      "version": "1.0.0",
+      "keywords": [
+        "memory",
+        "remember",
+        "save",
+        "fact",
+        "pattern",
+        "decision",
+        "context",
+        "persist"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "api-troubleshooting",
+      "source": "./api-troubleshooting",
+      "description": "Debug external and internal API failures — timeouts, rate limits, auth, webhooks, latency, retries",
+      "version": "1.0.0",
+      "keywords": [
+        "api",
+        "timeout",
+        "rate limit",
+        "webhook",
+        "curl",
+        "latency",
+        "retry",
+        "429",
+        "401",
+        "403",
+        "500"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "backup",
+      "source": "./backup",
+      "description": "Database backup and restore — mysqldump, Cloudflare R2, recovery procedures",
+      "version": "1.0.0",
+      "keywords": [
+        "backup",
+        "restore",
+        "dump",
+        "database",
+        "r2",
+        "cloudflare",
+        "mysqldump"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "cloudflare-api",
+      "source": "./cloudflare-api",
+      "description": "Cloudflare API for DNS management, tunnels, and zone administration",
+      "version": "1.0.0",
+      "keywords": [
+        "cloudflare",
+        "dns",
+        "tunnel",
+        "zone",
+        "domain",
+        "record",
+        "proxy"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "cron-scheduling",
+      "source": "./cron-scheduling",
+      "description": "Schedule and manage recurring tasks with cron and systemd timers",
+      "version": "1.0.0",
+      "keywords": [
+        "cron",
+        "crontab",
+        "schedule",
+        "timer",
+        "systemd",
+        "recurring",
+        "periodic"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "deploy",
+      "source": "./deploy",
+      "description": "Deploy Laravel and Next.js apps — zero-downtime, migrations, builds, rollbacks",
+      "version": "1.0.0",
+      "keywords": [
+        "deploy",
+        "publish",
+        "release",
+        "migration",
+        "build",
+        "composer",
+        "npm",
+        "artisan"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "git-essentials",
+      "source": "./git-essentials",
+      "description": "Essential Git commands and workflows for version control and collaboration",
+      "version": "1.0.0",
+      "keywords": [
+        "git",
+        "commit",
+        "branch",
+        "merge",
+        "push",
+        "pull",
+        "clone",
+        "stash"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "git-workflows",
+      "source": "./git-workflows",
+      "description": "Advanced Git operations — rebase, bisect, worktrees, reflog, subtrees, cherry-pick",
+      "version": "1.0.0",
+      "keywords": [
+        "rebase",
+        "bisect",
+        "worktree",
+        "reflog",
+        "subtree",
+        "cherry-pick",
+        "merge conflict",
+        "squash"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "github",
+      "source": "./github",
+      "description": "GitHub CLI — issues, PRs, actions, workflows, releases, and API queries",
+      "version": "1.0.0",
+      "keywords": [
+        "github",
+        "gh",
+        "issue",
+        "pull request",
+        "pr",
+        "actions",
+        "workflow",
+        "release",
+        "ci"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "google-workspace",
+      "source": "./google-workspace",
+      "description": "Google Workspace CLI — Drive, Gmail, Calendar, Sheets, Docs, Tasks via gws",
+      "version": "1.0.0",
+      "keywords": [
+        "google",
+        "drive",
+        "gmail",
+        "email",
+        "calendar",
+        "sheets",
+        "spreadsheet",
+        "docs",
+        "tasks",
+        "gws"
+      ],
+      "category": "productivity"
+    },
+    {
+      "name": "grafana",
+      "source": "./grafana",
+      "description": "Grafana dashboards, Loki LogQL, variable templating, alerting, and API queries",
+      "version": "1.0.0",
+      "keywords": [
+        "grafana",
+        "dashboard",
+        "loki",
+        "logql",
+        "templating",
+        "datasource",
+        "panel",
+        "alert"
+      ],
+      "category": "monitoring"
+    },
+    {
+      "name": "image-gen",
+      "source": "./image-gen",
+      "description": "Generate images, photos, icons, diagrams, thumbnails, banners, and visual assets",
+      "version": "1.0.0",
+      "keywords": [
+        "image",
+        "photo",
+        "generate",
+        "create",
+        "draw",
+        "icon",
+        "diagram",
+        "thumbnail",
+        "banner"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "laravel-debugging",
+      "source": "./laravel-debugging",
+      "description": "Debug Laravel apps in production — N+1, memory leaks, stuck queues, slow jobs, Horizon",
+      "version": "1.0.0",
+      "keywords": [
+        "laravel",
+        "debug",
+        "n+1",
+        "memory leak",
+        "queue",
+        "horizon",
+        "job",
+        "failed",
+        "eloquent"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "linux-service-triage",
+      "source": "./linux-service-triage",
+      "description": "Diagnose Linux service issues — logs, systemd, permissions, Nginx proxy, DNS checks",
+      "version": "1.0.0",
+      "keywords": [
+        "service",
+        "down",
+        "502",
+        "503",
+        "systemd",
+        "journalctl",
+        "permission",
+        "nginx",
+        "firewall"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "load-balancing",
+      "source": "./load-balancing",
+      "description": "Nginx load balancing — upstream, health checks, zero-downtime deploy, scaling",
+      "version": "1.0.0",
+      "keywords": [
+        "load balance",
+        "upstream",
+        "proxy",
+        "failover",
+        "health check",
+        "scaling",
+        "502"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "log-tail",
+      "source": "./log-tail",
+      "description": "Stream recent logs from systemd journal and application log files",
+      "version": "1.0.0",
+      "keywords": [
+        "log",
+        "journal",
+        "journalctl",
+        "tail",
+        "stream",
+        "syslog"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "marketing-digital-growth",
+      "source": "./marketing-digital-growth",
+      "description": "Digital marketing strategist — paid ads, funnels, growth hacking, email marketing, SEO",
+      "version": "1.0.0",
+      "keywords": [
+        "marketing",
+        "growth",
+        "funnel",
+        "conversion",
+        "churn",
+        "retention",
+        "acquisition",
+        "viral"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "meta-ads-advanced",
+      "source": "./meta-ads-advanced",
+      "description": "Advanced Meta Ads — Andromeda AI, Advantage+, CAPI/EMQ, creative testing, benchmarks",
+      "version": "1.0.0",
+      "keywords": [
+        "meta ads",
+        "facebook ads",
+        "andromeda",
+        "advantage plus",
+        "capi",
+        "creative testing",
+        "roas"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "mkt-digital",
+      "source": "./mkt-digital",
+      "description": "Digital marketing — paid traffic, Meta/Google Ads, funnels, copywriting, metrics, SEO",
+      "version": "1.0.0",
+      "keywords": [
+        "marketing",
+        "ads",
+        "meta",
+        "google",
+        "campaign",
+        "copy",
+        "funnel",
+        "landing page",
+        "seo"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "monitoring-alerting",
+      "source": "./monitoring-alerting",
+      "description": "Grafana alerts, Loki LogQL, SLO dashboards, Telegram notifications",
+      "version": "1.0.0",
+      "keywords": [
+        "grafana",
+        "loki",
+        "alert",
+        "dashboard",
+        "slo",
+        "prometheus",
+        "notification",
+        "monitor"
+      ],
+      "category": "monitoring"
+    },
+    {
+      "name": "mysql-performance",
+      "source": "./mysql-performance",
+      "description": "Diagnose slow queries, index tables, analyze EXPLAIN plans, tune MySQL 8",
+      "version": "1.0.0",
+      "keywords": [
+        "mysql",
+        "slow query",
+        "index",
+        "explain",
+        "deadlock",
+        "innodb",
+        "buffer pool",
+        "processlist"
+      ],
+      "category": "database"
+    },
+    {
+      "name": "nano-banana",
+      "source": "./nano-banana",
+      "description": "Generate and edit images using Gemini CLI — blog images, thumbnails, visual assets",
+      "version": "1.0.0",
+      "keywords": [
+        "image",
+        "generate",
+        "thumbnail",
+        "banner",
+        "icon",
+        "gemini",
+        "illustration"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "performance-profiling",
+      "source": "./performance-profiling",
+      "description": "Profile performance bottlenecks — Xdebug, Blackfire, flame graphs, k6 load testing",
+      "version": "1.0.0",
+      "keywords": [
+        "performance",
+        "profiling",
+        "xdebug",
+        "blackfire",
+        "flame graph",
+        "k6",
+        "load test",
+        "bottleneck"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "php-full-stack-developer",
+      "source": "./php-full-stack-developer",
+      "description": "Senior PHP/Laravel full-stack developer — backend, frontend, DB, DevOps, CI, security",
+      "version": "1.0.0",
+      "keywords": [
+        "php",
+        "laravel",
+        "eloquent",
+        "blade",
+        "inertia",
+        "controller",
+        "model",
+        "migration",
+        "api"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "playwright",
+      "source": "./playwright",
+      "description": "Playwright tests and scrapers — selectors, flaky fixes, CI/CD integration",
+      "version": "1.0.0",
+      "keywords": [
+        "playwright",
+        "scraper",
+        "e2e",
+        "browser",
+        "headless",
+        "selector",
+        "screenshot",
+        "automation"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "redis-patterns",
+      "source": "./redis-patterns",
+      "description": "Diagnose and optimize Redis — Laravel cache, Horizon queues, sessions, memory management",
+      "version": "1.0.0",
+      "keywords": [
+        "redis",
+        "cache",
+        "queue",
+        "horizon",
+        "session",
+        "memory",
+        "flush",
+        "ttl",
+        "eviction"
+      ],
+      "category": "database"
+    },
+    {
+      "name": "roteiros-virais-tiktok",
+      "source": "./roteiros-virais-tiktok",
+      "description": "Create viral short-video scripts for TikTok/Reels — career and employability content",
+      "version": "1.0.0",
+      "keywords": [
+        "tiktok",
+        "reels",
+        "video",
+        "script",
+        "viral",
+        "short video",
+        "content"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "sql-toolkit",
+      "source": "./sql-toolkit",
+      "description": "Query, design, migrate, and optimize SQL databases — SQLite, PostgreSQL, MySQL",
+      "version": "1.0.0",
+      "keywords": [
+        "sql",
+        "query",
+        "join",
+        "index",
+        "migration",
+        "schema",
+        "sqlite",
+        "postgresql",
+        "mysql"
+      ],
+      "category": "database"
+    },
+    {
+      "name": "sre",
+      "source": "./sre",
+      "description": "Server Reliability Engineering — monitoring, logs, performance, incidents, services",
+      "version": "1.0.0",
+      "keywords": [
+        "server",
+        "load",
+        "cpu",
+        "memory",
+        "disk",
+        "nginx",
+        "mysql",
+        "redis",
+        "supervisor",
+        "service",
+        "health"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "ssh-essentials",
+      "source": "./ssh-essentials",
+      "description": "SSH — key management, port forwarding, tunneling, file transfers, config best practices",
+      "version": "1.0.0",
+      "keywords": [
+        "ssh",
+        "scp",
+        "rsync",
+        "key",
+        "port forwarding",
+        "tunnel",
+        "jump host",
+        "bastion"
+      ],
+      "category": "security"
+    },
+    {
+      "name": "ssl-certificates",
+      "source": "./ssl-certificates",
+      "description": "SSL/TLS certificates — Let's Encrypt, certbot, auto-renewal, wildcard, Cloudflare SSL",
+      "version": "1.0.0",
+      "keywords": [
+        "ssl",
+        "tls",
+        "https",
+        "certificate",
+        "certbot",
+        "letsencrypt",
+        "wildcard",
+        "openssl"
+      ],
+      "category": "security"
+    },
+    {
+      "name": "sysadmin-toolbox",
+      "source": "./sysadmin-toolbox",
+      "description": "Sysadmin tool discovery and shell one-liners for networking, security, and DevOps",
+      "version": "1.0.0",
+      "keywords": [
+        "sysadmin",
+        "devops",
+        "network",
+        "tcpdump",
+        "netstat",
+        "lsof",
+        "strace",
+        "nmap",
+        "curl"
+      ],
+      "category": "devops"
+    },
+    {
+      "name": "unfuck-my-git-state",
+      "source": "./unfuck-my-git-state",
+      "description": "Diagnose and recover broken Git state — detached HEAD, phantom worktrees, missing refs",
+      "version": "1.0.0",
+      "keywords": [
+        "git broken",
+        "detached head",
+        "phantom worktree",
+        "missing ref",
+        "git recover",
+        "git fix"
+      ],
+      "category": "development"
+    },
+    {
+      "name": "web-research",
+      "source": "./web-research",
+      "description": "Web research — search documentation, browse sites, analyze competitors",
+      "version": "1.0.0",
+      "keywords": [
+        "search",
+        "web",
+        "url",
+        "browse",
+        "documentation",
+        "competitor"
+      ],
+      "category": "development"
+    }
+  ]
+}

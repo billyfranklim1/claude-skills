@@ -1,0 +1,5 @@
+{
+  "name": "sre",
+  "description": "Server Reliability Engineering — monitoring, logs, performance, incidents, services",
+  "version": "1.0.0"
+}

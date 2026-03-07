@@ -1,0 +1,5 @@
+{
+  "name": "grafana",
+  "description": "Grafana dashboards, Loki LogQL, variable templating, alerting, and API queries",
+  "version": "1.0.0"
+}

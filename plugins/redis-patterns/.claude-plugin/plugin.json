@@ -1,0 +1,5 @@
+{
+  "name": "redis-patterns",
+  "description": "Diagnose and optimize Redis — Laravel cache, Horizon queues, sessions, memory management",
+  "version": "1.0.0"
+}

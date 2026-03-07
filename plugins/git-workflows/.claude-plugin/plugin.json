@@ -1,0 +1,5 @@
+{
+  "name": "git-workflows",
+  "description": "Advanced Git operations — rebase, bisect, worktrees, reflog, subtrees, cherry-pick",
+  "version": "1.0.0"
+}

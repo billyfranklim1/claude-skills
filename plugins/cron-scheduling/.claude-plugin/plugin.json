@@ -1,0 +1,5 @@
+{
+  "name": "cron-scheduling",
+  "description": "Schedule and manage recurring tasks with cron and systemd timers",
+  "version": "1.0.0"
+}

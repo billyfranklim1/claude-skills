@@ -1,0 +1,5 @@
+{
+  "name": "performance-profiling",
+  "description": "Profile performance bottlenecks — Xdebug, Blackfire, flame graphs, k6 load testing",
+  "version": "1.0.0"
+}

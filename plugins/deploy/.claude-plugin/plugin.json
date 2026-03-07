@@ -1,0 +1,5 @@
+{
+  "name": "deploy",
+  "description": "Deploy Laravel and Next.js apps — zero-downtime, migrations, builds, rollbacks",
+  "version": "1.0.0"
+}

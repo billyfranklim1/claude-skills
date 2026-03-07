@@ -1,0 +1,5 @@
+{
+  "name": "load-balancing",
+  "description": "Nginx load balancing — upstream, health checks, zero-downtime deploy, scaling",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "google-workspace",
+  "description": "Google Workspace CLI — Drive, Gmail, Calendar, Sheets, Docs, Tasks via gws",
+  "version": "1.0.0"
+}

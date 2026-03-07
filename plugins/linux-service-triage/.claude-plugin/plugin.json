@@ -1,0 +1,5 @@
+{
+  "name": "linux-service-triage",
+  "description": "Diagnose Linux service issues — logs, systemd, permissions, Nginx proxy, DNS checks",
+  "version": "1.0.0"
+}

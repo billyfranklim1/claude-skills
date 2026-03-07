@@ -1,0 +1,5 @@
+{
+  "name": "sql-toolkit",
+  "description": "Query, design, migrate, and optimize SQL databases — SQLite, PostgreSQL, MySQL",
+  "version": "1.0.0"
+}

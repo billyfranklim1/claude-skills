@@ -1,0 +1,5 @@
+{
+  "name": "unfuck-my-git-state",
+  "description": "Diagnose and recover broken Git state — detached HEAD, phantom worktrees, missing refs",
+  "version": "1.0.0"
+}

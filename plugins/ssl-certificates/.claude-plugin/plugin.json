@@ -1,0 +1,5 @@
+{
+  "name": "ssl-certificates",
+  "description": "SSL/TLS certificates — Let's Encrypt, certbot, auto-renewal, wildcard, Cloudflare SSL",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "log-tail",
+  "description": "Stream recent logs from systemd journal and application log files",
+  "version": "1.0.0"
+}

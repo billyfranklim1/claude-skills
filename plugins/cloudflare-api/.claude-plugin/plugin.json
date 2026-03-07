@@ -1,0 +1,5 @@
+{
+  "name": "cloudflare-api",
+  "description": "Cloudflare API for DNS management, tunnels, and zone administration",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "monitoring-alerting",
+  "description": "Grafana alerts, Loki LogQL, SLO dashboards, Telegram notifications",
+  "version": "1.0.0"
+}

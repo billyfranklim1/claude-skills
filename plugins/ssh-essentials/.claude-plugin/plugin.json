@@ -1,0 +1,5 @@
+{
+  "name": "ssh-essentials",
+  "description": "SSH — key management, port forwarding, tunneling, file transfers, config best practices",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "api-troubleshooting",
+  "description": "Debug external and internal API failures — timeouts, rate limits, auth, webhooks, latency, retries",
+  "version": "1.0.0"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "agent-memory",
+  "description": "Persistent semantic memory for saving facts, patterns, and decisions across sessions",
+  "version": "1.0.0"
+}

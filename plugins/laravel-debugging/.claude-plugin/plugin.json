@@ -1,0 +1,5 @@
+{
+  "name": "laravel-debugging",
+  "description": "Debug Laravel apps in production — N+1, memory leaks, stuck queues, slow jobs, Horizon",
+  "version": "1.0.0"
+}
