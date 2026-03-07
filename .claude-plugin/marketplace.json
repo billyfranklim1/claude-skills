@@ -30,7 +30,7 @@
     {
       "name": "api-troubleshooting",
       "source": "./api-troubleshooting",
-      "description": "Debug external and internal API failures — timeouts, rate limits, auth, webhooks, latency, retries",
+      "description": "Debug external and internal API failures \u2014 timeouts, rate limits, auth, webhooks, latency, retries",
       "version": "1.0.0",
       "keywords": [
         "api",
@@ -45,12 +45,12 @@
         "403",
         "500"
       ],
-      "category": "development"
+      "category": "devops"
     },
     {
       "name": "backup",
       "source": "./backup",
-      "description": "Database backup and restore — mysqldump, Cloudflare R2, recovery procedures",
+      "description": "Database backup and restore \u2014 mysqldump, Cloudflare R2, recovery procedures",
       "version": "1.0.0",
       "keywords": [
         "backup",
@@ -61,7 +61,7 @@
         "cloudflare",
         "mysqldump"
       ],
-      "category": "devops"
+      "category": "database"
     },
     {
       "name": "cloudflare-api",
@@ -98,7 +98,7 @@
     {
       "name": "deploy",
       "source": "./deploy",
-      "description": "Deploy Laravel and Next.js apps — zero-downtime, migrations, builds, rollbacks",
+      "description": "Deploy Laravel and Next.js apps \u2014 zero-downtime, migrations, builds, rollbacks",
       "version": "1.0.0",
       "keywords": [
         "deploy",
@@ -132,7 +132,7 @@
     {
       "name": "git-workflows",
       "source": "./git-workflows",
-      "description": "Advanced Git operations — rebase, bisect, worktrees, reflog, subtrees, cherry-pick",
+      "description": "Advanced Git operations \u2014 rebase, bisect, worktrees, reflog, subtrees, cherry-pick",
       "version": "1.0.0",
       "keywords": [
         "rebase",
@@ -149,7 +149,7 @@
     {
       "name": "github",
       "source": "./github",
-      "description": "GitHub CLI — issues, PRs, actions, workflows, releases, and API queries",
+      "description": "GitHub CLI \u2014 issues, PRs, actions, workflows, releases, and API queries",
       "version": "1.0.0",
       "keywords": [
         "github",
@@ -167,7 +167,7 @@
     {
       "name": "google-workspace",
       "source": "./google-workspace",
-      "description": "Google Workspace CLI — Drive, Gmail, Calendar, Sheets, Docs, Tasks via gws",
+      "description": "Google Workspace CLI \u2014 Drive, Gmail, Calendar, Sheets, Docs, Tasks via gws",
       "version": "1.0.0",
       "keywords": [
         "google",
@@ -216,12 +216,12 @@
         "thumbnail",
         "banner"
       ],
-      "category": "development"
+      "category": "productivity"
     },
     {
       "name": "laravel-debugging",
       "source": "./laravel-debugging",
-      "description": "Debug Laravel apps in production — N+1, memory leaks, stuck queues, slow jobs, Horizon",
+      "description": "Debug Laravel apps in production \u2014 N+1, memory leaks, stuck queues, slow jobs, Horizon",
       "version": "1.0.0",
       "keywords": [
         "laravel",
@@ -239,7 +239,7 @@
     {
       "name": "linux-service-triage",
       "source": "./linux-service-triage",
-      "description": "Diagnose Linux service issues — logs, systemd, permissions, Nginx proxy, DNS checks",
+      "description": "Diagnose Linux service issues \u2014 logs, systemd, permissions, Nginx proxy, DNS checks",
       "version": "1.0.0",
       "keywords": [
         "service",
@@ -257,7 +257,7 @@
     {
       "name": "load-balancing",
       "source": "./load-balancing",
-      "description": "Nginx load balancing — upstream, health checks, zero-downtime deploy, scaling",
+      "description": "Nginx load balancing \u2014 upstream, health checks, zero-downtime deploy, scaling",
       "version": "1.0.0",
       "keywords": [
         "load balance",
@@ -283,12 +283,12 @@
         "stream",
         "syslog"
       ],
-      "category": "devops"
+      "category": "monitoring"
     },
     {
       "name": "marketing-digital-growth",
       "source": "./marketing-digital-growth",
-      "description": "Digital marketing strategist — paid ads, funnels, growth hacking, email marketing, SEO",
+      "description": "Digital marketing strategist \u2014 paid ads, funnels, growth hacking, email marketing, SEO",
       "version": "1.0.0",
       "keywords": [
         "marketing",
@@ -305,7 +305,7 @@
     {
       "name": "meta-ads-advanced",
       "source": "./meta-ads-advanced",
-      "description": "Advanced Meta Ads — Andromeda AI, Advantage+, CAPI/EMQ, creative testing, benchmarks",
+      "description": "Advanced Meta Ads \u2014 Andromeda AI, Advantage+, CAPI/EMQ, creative testing, benchmarks",
       "version": "1.0.0",
       "keywords": [
         "meta ads",
@@ -321,7 +321,7 @@
     {
       "name": "mkt-digital",
       "source": "./mkt-digital",
-      "description": "Digital marketing — paid traffic, Meta/Google Ads, funnels, copywriting, metrics, SEO",
+      "description": "Digital marketing \u2014 paid traffic, Meta/Google Ads, funnels, copywriting, metrics, SEO",
       "version": "1.0.0",
       "keywords": [
         "marketing",
@@ -373,7 +373,7 @@
     {
       "name": "nano-banana",
       "source": "./nano-banana",
-      "description": "Generate and edit images using Gemini CLI — blog images, thumbnails, visual assets",
+      "description": "Generate and edit images using Gemini CLI \u2014 blog images, thumbnails, visual assets",
       "version": "1.0.0",
       "keywords": [
         "image",
@@ -384,12 +384,12 @@
         "gemini",
         "illustration"
       ],
-      "category": "development"
+      "category": "productivity"
     },
     {
       "name": "performance-profiling",
       "source": "./performance-profiling",
-      "description": "Profile performance bottlenecks — Xdebug, Blackfire, flame graphs, k6 load testing",
+      "description": "Profile performance bottlenecks \u2014 Xdebug, Blackfire, flame graphs, k6 load testing",
       "version": "1.0.0",
       "keywords": [
         "performance",
@@ -401,12 +401,12 @@
         "load test",
         "bottleneck"
       ],
-      "category": "development"
+      "category": "devops"
     },
     {
       "name": "php-full-stack-developer",
       "source": "./php-full-stack-developer",
-      "description": "Senior PHP/Laravel full-stack developer — backend, frontend, DB, DevOps, CI, security",
+      "description": "Senior PHP/Laravel full-stack developer \u2014 backend, frontend, DB, DevOps, CI, security",
       "version": "1.0.0",
       "keywords": [
         "php",
@@ -424,7 +424,7 @@
     {
       "name": "playwright",
       "source": "./playwright",
-      "description": "Playwright tests and scrapers — selectors, flaky fixes, CI/CD integration",
+      "description": "Playwright tests and scrapers \u2014 selectors, flaky fixes, CI/CD integration",
       "version": "1.0.0",
       "keywords": [
         "playwright",
@@ -441,7 +441,7 @@
     {
       "name": "redis-patterns",
       "source": "./redis-patterns",
-      "description": "Diagnose and optimize Redis — Laravel cache, Horizon queues, sessions, memory management",
+      "description": "Diagnose and optimize Redis \u2014 Laravel cache, Horizon queues, sessions, memory management",
       "version": "1.0.0",
       "keywords": [
         "redis",
@@ -459,7 +459,7 @@
     {
       "name": "roteiros-virais-tiktok",
       "source": "./roteiros-virais-tiktok",
-      "description": "Create viral short-video scripts for TikTok/Reels — career and employability content",
+      "description": "Create viral short-video scripts for TikTok/Reels \u2014 career and employability content",
       "version": "1.0.0",
       "keywords": [
         "tiktok",
@@ -475,7 +475,7 @@
     {
       "name": "sql-toolkit",
       "source": "./sql-toolkit",
-      "description": "Query, design, migrate, and optimize SQL databases — SQLite, PostgreSQL, MySQL",
+      "description": "Query, design, migrate, and optimize SQL databases \u2014 SQLite, PostgreSQL, MySQL",
       "version": "1.0.0",
       "keywords": [
         "sql",
@@ -493,7 +493,7 @@
     {
       "name": "sre",
       "source": "./sre",
-      "description": "Server Reliability Engineering — monitoring, logs, performance, incidents, services",
+      "description": "Server Reliability Engineering \u2014 monitoring, logs, performance, incidents, services",
       "version": "1.0.0",
       "keywords": [
         "server",
@@ -513,7 +513,7 @@
     {
       "name": "ssh-essentials",
       "source": "./ssh-essentials",
-      "description": "SSH — key management, port forwarding, tunneling, file transfers, config best practices",
+      "description": "SSH \u2014 key management, port forwarding, tunneling, file transfers, config best practices",
       "version": "1.0.0",
       "keywords": [
         "ssh",
@@ -530,7 +530,7 @@
     {
       "name": "ssl-certificates",
       "source": "./ssl-certificates",
-      "description": "SSL/TLS certificates — Let's Encrypt, certbot, auto-renewal, wildcard, Cloudflare SSL",
+      "description": "SSL/TLS certificates \u2014 Let's Encrypt, certbot, auto-renewal, wildcard, Cloudflare SSL",
       "version": "1.0.0",
       "keywords": [
         "ssl",
@@ -565,7 +565,7 @@
     {
       "name": "unfuck-my-git-state",
       "source": "./unfuck-my-git-state",
-      "description": "Diagnose and recover broken Git state — detached HEAD, phantom worktrees, missing refs",
+      "description": "Diagnose and recover broken Git state \u2014 detached HEAD, phantom worktrees, missing refs",
       "version": "1.0.0",
       "keywords": [
         "git broken",
@@ -580,7 +580,7 @@
     {
       "name": "web-research",
       "source": "./web-research",
-      "description": "Web research — search documentation, browse sites, analyze competitors",
+      "description": "Web research \u2014 search documentation, browse sites, analyze competitors",
       "version": "1.0.0",
       "keywords": [
         "search",
@@ -590,7 +590,7 @@
         "documentation",
         "competitor"
       ],
-      "category": "development"
+      "category": "productivity"
     }
   ]
 }
