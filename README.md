@@ -1,117 +1,116 @@
-# Claude Code Skills
+# Billy Claude Skills
 
-A collection of 34 skills for [Claude Code](https://claude.ai/code) covering SRE, DevOps, databases, security, marketing, and full-stack development.
-
-Packaged as an official [Claude Code plugin marketplace](https://docs.claude.com/en/create-marketplace) for easy installation and auto-updates.
+A curated collection of 34 Claude Code plugins for SRE, DevOps, marketing, and full-stack development.
 
 ## Installation
 
-### Via Plugin Marketplace (recommended)
-
-```shell
-/plugin marketplace add billyfranklim1/claude-skills
-/plugin install sre@billy-claude-skills
-```
-
-### Manual (symlink)
-
 ```bash
-git clone https://github.com/billyfranklim1/claude-skills.git ~/.claude-skills
-
-# For Claude Code
-ln -sf ~/.claude-skills/plugins/sre/skills/sre ~/.claude/skills/sre
-
-# Or link all at once
-for d in ~/.claude-skills/plugins/*/skills/*/; do
-  name=$(basename "$d")
-  ln -sf "$d" ~/.claude/skills/"$name"
-done
+/plugin marketplace add billyfranklim1/claude-skills
 ```
 
-## Available Skills
+## Plugins
 
 ### DevOps
+
 | Plugin | Description |
 |--------|-------------|
-| `sre` | Server Reliability Engineering — monitoring, logs, performance, incidents |
-| `deploy` | Deploy Laravel and Next.js apps — zero-downtime, migrations, rollbacks |
-| `backup` | Database backup and restore — mysqldump, Cloudflare R2, recovery |
-| `cloudflare-api` | Cloudflare API for DNS management, tunnels, and zone administration |
-| `cron-scheduling` | Schedule and manage recurring tasks with cron and systemd timers |
-| `linux-service-triage` | Diagnose Linux service issues — logs, systemd, permissions, DNS |
-| `load-balancing` | Nginx load balancing — upstream, health checks, zero-downtime |
-| `log-tail` | Stream recent logs from systemd journal and application log files |
-| `sysadmin-toolbox` | Sysadmin tool discovery and shell one-liners |
+| **sre** | Server Reliability Engineering — monitoring, logs, performance, incidents |
+| **deploy** | Zero-downtime deployment for Laravel and Next.js applications |
+| **api-troubleshooting** | Debug external and internal API failures — timeouts, rate limits, authentication, webhooks |
+| **load-balancing** | Nginx load balancing — upstream config, health checks, zero-downtime deploy, horizontal scaling |
+| **performance-profiling** | Profile and diagnose performance bottlenecks in PHP/Laravel, Next.js, and MySQL |
+| **cron-scheduling** | Schedule and manage recurring tasks with cron and systemd timers |
+| **linux-service-triage** | Diagnose Linux service issues — logs, systemd, permissions, Nginx proxy, DNS checks |
+| **cloudflare-api** | Cloudflare API for DNS management, tunnels, cache purge, and zone administration |
+| **sysadmin-toolbox** | Tool discovery and shell one-liner reference for sysadmin, DevOps, and security tasks |
 
 ### Development
+
 | Plugin | Description |
 |--------|-------------|
-| `php-full-stack-developer` | Senior PHP/Laravel full-stack developer |
-| `laravel-debugging` | Debug Laravel in production — N+1, memory leaks, queues, Horizon |
-| `git-essentials` | Essential Git commands and workflows |
-| `git-workflows` | Advanced Git — rebase, bisect, worktrees, reflog, cherry-pick |
-| `github` | GitHub CLI — issues, PRs, actions, workflows, releases |
-| `unfuck-my-git-state` | Diagnose and recover broken Git state |
-| `playwright` | Playwright tests and scrapers — selectors, flaky fixes, CI/CD |
-| `image-gen` | Generate images, icons, diagrams, thumbnails, banners |
-| `nano-banana` | Generate images using Gemini CLI |
-| `performance-profiling` | Xdebug, Blackfire, flame graphs, k6 load testing |
-| `api-troubleshooting` | Debug API failures — timeouts, rate limits, auth, webhooks |
-| `web-research` | Search documentation, browse sites, analyze competitors |
+| **laravel-debugging** | Debug Laravel apps in production — N+1 queries, memory leaks, stuck queues, slow jobs, Horizon |
+| **php-full-stack-developer** | Senior PHP/Laravel full-stack developer — backend, frontend, DB, DevOps, CI, debugging |
+| **git-workflows** | Advanced Git operations — rebase, bisect, worktrees, reflog recovery, cherry-pick |
+| **git-essentials** | Essential Git commands and workflows for version control, branching, and collaboration |
+| **unfuck-my-git-state** | Diagnose and recover broken Git state — detached HEAD, phantom worktrees, orphaned refs |
+| **playwright** | Write, debug, and maintain Playwright tests and scrapers — resilient selectors, CI/CD |
+| **github** | GitHub CLI operations — issues, pull requests, CI/CD runs, releases, API queries using gh |
 
 ### Database
+
 | Plugin | Description |
 |--------|-------------|
-| `mysql-performance` | Slow queries, EXPLAIN plans, indexing, MySQL 8 tuning |
-| `redis-patterns` | Redis cache, Horizon queues, sessions, memory management |
-| `sql-toolkit` | Query, design, migrate, and optimize SQL databases |
+| **backup** | Database backup and restore with MySQL, Cloudflare R2, and automated scheduling |
+| **redis-patterns** | Redis diagnostics and optimization — cache, queues, sessions, memory management for Laravel |
+| **mysql-performance** | Diagnose slow queries, index tables, analyze EXPLAIN plans, tune MySQL 8 in production |
+| **sql-toolkit** | Query, design, migrate, and optimize SQL databases — schema design, queries, indexing |
 
 ### Monitoring
-| Plugin | Description |
-|--------|-------------|
-| `grafana` | Grafana dashboards, Loki LogQL, alerting, API queries |
-| `monitoring-alerting` | Grafana alerts, SLO dashboards, Telegram notifications |
 
-### Security
 | Plugin | Description |
 |--------|-------------|
-| `ssh-essentials` | SSH key management, port forwarding, tunneling |
-| `ssl-certificates` | Let's Encrypt, certbot, auto-renewal, wildcard SSL |
+| **monitoring-alerting** | Grafana alerts, Loki LogQL, SLO dashboards, Telegram contact points, alerting rules |
+| **grafana** | Grafana and Loki operations — API queries, LogQL, variable templating, alerting, provisioning |
+| **log-tail** | Stream recent logs from systemd journal — view logs by service unit, follow in real time |
 
 ### Marketing
+
 | Plugin | Description |
 |--------|-------------|
-| `marketing-digital-growth` | Paid ads, funnels, growth hacking, email marketing, SEO |
-| `meta-ads-advanced` | Meta Ads — Andromeda AI, Advantage+, CAPI/EMQ, creative testing |
-| `mkt-digital` | Digital marketing — paid traffic, funnels, copywriting, metrics |
-| `roteiros-virais-tiktok` | Viral short-video scripts for TikTok/Reels |
+| **meta-ads-advanced** | Advanced Meta Ads 2026 strategies — Andromeda AI, Advantage+, CAPI/EMQ, creative testing |
+| **mkt-digital** | Digital marketing, paid traffic, growth, Meta Ads, Google Ads, funnels, copy, metrics, SEO |
+| **marketing-digital-growth** | Senior digital marketing strategist — paid traffic, growth hacking, multi-platform Ads |
+| **roteiros-virais-tiktok** | Create viral short-form video scripts (TikTok/Reels) optimized for engagement |
 
 ### Productivity
+
 | Plugin | Description |
 |--------|-------------|
-| `google-workspace` | Google Drive, Gmail, Calendar, Sheets, Docs via gws CLI |
-| `agent-memory` | Persistent semantic memory across sessions |
+| **agent-memory** | Persistent semantic memory for the agent — save facts, patterns, and decisions across sessions |
+| **google-workspace** | Google Workspace integration — Drive, Gmail, Calendar, Sheets, Docs, Tasks via gws CLI |
+| **image-gen** | Generate images, icons, diagrams, thumbnails, and visual content using Gemini CLI |
+| **nano-banana** | Generate and edit images using Nano Banana (Gemini CLI) — blog images, thumbnails, icons |
+| **web-research** | Web research, documentation lookup, site navigation, competitor analysis |
 
-## Skill Structure
+### Security
 
-Each skill follows the [Claude Code plugin format](https://docs.claude.com/en/plugins):
+| Plugin | Description |
+|--------|-------------|
+| **ssh-essentials** | Essential SSH commands — key management, port forwarding, tunneling, file transfers |
+| **ssl-certificates** | SSL/TLS certificate management — Let's Encrypt, certbot, auto-renewal, wildcard DNS challenge |
+
+## Structure
 
 ```
-plugins/skill-name/
+claude-skills/
 ├── .claude-plugin/
-│   └── plugin.json          # Plugin manifest
-└── skills/
-    └── skill-name/
-        └── SKILL.md         # Skill instructions
+│   └── marketplace.json      # Marketplace catalog
+├── plugins/
+│   ├── sre/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   └── skills/
+│   │       └── sre/
+│   │           └── SKILL.md
+│   ├── deploy/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   └── skills/
+│   │       └── deploy/
+│   │           └── SKILL.md
+│   └── ... (34 plugins total)
+└── README.md
 ```
 
-## Auto-sync (server)
+## Categories
 
-Keep skills updated automatically:
-
-```bash
-*/30 * * * * cd /path/to/claude-skills && git pull --ff-only -q
-```
+- **devops** (9 plugins) — Server management, deployment, infrastructure
+- **development** (7 plugins) — Code, Git, testing, debugging
+- **database** (4 plugins) — MySQL, Redis, SQL, backup/restore
+- **monitoring** (3 plugins) — Grafana, Loki, logs, alerting
+- **marketing** (4 plugins) — Meta Ads, growth, copywriting, social media
+- **productivity** (5 plugins) — AI tools, research, workspace, image generation
+- **security** (2 plugins) — SSH, SSL/TLS certificates
 
 ## License
 
