@@ -102,7 +102,20 @@ export async function renderCarousel(carouselJson, { outDir, brandName, projectR
   const outputs = [];
   for (const slide of carouselJson.slides) {
     const VariantComp = await loadVariant(style, slide.variant);
-    const element = VariantComp({ slide, brand, meta: carouselJson.meta });
+
+    // Resolve image: prefer local_image (downloaded), fall back to image_url_original
+    let image;
+    if (slide.local_image && fs.existsSync(slide.local_image)) {
+      // Read as base64 data URI so Satori can embed it
+      const buf = fs.readFileSync(slide.local_image);
+      const ext = path.extname(slide.local_image).slice(1).toLowerCase();
+      const mime = ext === 'png' ? 'image/png' : ext === 'webp' ? 'image/webp' : 'image/jpeg';
+      image = `data:${mime};base64,${buf.toString('base64')}`;
+    } else if (slide.image_url_original) {
+      image = slide.image_url_original;
+    }
+
+    const element = VariantComp({ slide, brand, meta: carouselJson.meta, image });
 
     if (verbose) console.log(`[render] slide ${slide.index} (${style}/${slide.variant})`);
     const png = await renderSlide({ element, width, height, fonts });

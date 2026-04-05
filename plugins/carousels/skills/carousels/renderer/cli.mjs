@@ -21,6 +21,7 @@ import {
   brandSearchPaths, currentBrandName,
 } from './lib/brand-loader.mjs';
 import { listStyles, listVariants } from './lib/style-loader.mjs';
+import { prepareCandidates, getChain } from '../scripts/image-search/chain.mjs';
 
 const args = process.argv.slice(2);
 const [cmd, subcmd, ...rest] = args;
@@ -119,6 +120,38 @@ ${outputs.map((o, i) => `<div class="slide"><img src="${path.basename(o)}"><div 
       }
     }
 
+    else if (cmd === 'images-prep') {
+      const jsonPath = subcmd;
+      if (!jsonPath) throw new Error('Usage: images-prep <carousel.json> [--slide N] [--count 5] [--skip 0]');
+      const data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+      const count = parseInt(getFlag('count') || '5', 10);
+      const skip = parseInt(getFlag('skip') || '0', 10);
+      const onlySlide = getFlag('slide') ? parseInt(getFlag('slide'), 10) : null;
+      const projectRoot = path.dirname(path.resolve(jsonPath));
+      console.log(`🔎 Fetching candidates (chain: ${getChain().join(' → ')}, count=${count}, skip=${skip})`);
+      const manifest = await prepareCandidates(data, projectRoot, { count, onlySlide, skip });
+      const manifestPath = jsonPath.replace(/\.json$/, '.candidates.json');
+      fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+      console.log(`\n✅ Manifest saved: ${manifestPath}`);
+      console.log(`\n📋 Next step: review each candidate visually, then edit ${jsonPath}`);
+      console.log(`   setting each slide's "local_image" field to the chosen path.`);
+    }
+
+    else if (cmd === 'images-accept') {
+      // Write local_image into carousel.json for a specific slide
+      const jsonPath = subcmd;
+      if (!jsonPath) throw new Error('Usage: images-accept <carousel.json> --slide N --path <image-path>');
+      const slideIdx = parseInt(getFlag('slide'), 10);
+      const imgPath = getFlag('path');
+      if (!slideIdx || !imgPath) throw new Error('Need --slide N --path <image>');
+      const data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+      const slide = data.slides.find(s => s.index === slideIdx);
+      if (!slide) throw new Error(`Slide ${slideIdx} not found`);
+      slide.local_image = imgPath;
+      fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), 'utf-8');
+      console.log(`✅ Slide ${slideIdx} → ${imgPath}`);
+    }
+
     else if (cmd === 'styles') {
       if (subcmd === 'list') {
         for (const s of listStyles()) console.log(s);
@@ -139,6 +172,8 @@ ${outputs.map((o, i) => `<div class="slide"><img src="${path.basename(o)}"><div 
 Commands:
   render <file.json> [--out <dir>] [--brand <name>] [-v]
   preview <file.json> [--brand <name>]
+  images-prep <file.json> [--slide N] [--count 5] [--skip 0]
+  images-accept <file.json> --slide N --path <image-path>
 
   brand new <name> [--global]
   brand list

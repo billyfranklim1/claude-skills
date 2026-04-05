@@ -1,6 +1,69 @@
 # Image Strategy
 
-3 modes. Pick based on style, topic, and user preference.
+3 modes + fallback chain. Pick based on style, topic, and user preference.
+
+## Agentic image selection (for modes `real` and `auto`)
+
+**Claude is the validator — NO external Vision API.**
+
+Provider chain downloads candidates; Claude reads each image and picks the best fit.
+
+### Provider chain
+
+```
+DuckDuckGo → Pexels → Unsplash → Apify Google → AI-gen (OpenRouter)
+```
+
+Override via env var:
+```bash
+export CAROUSELS_IMAGE_CHAIN="ddg,ai-gen"
+```
+
+Status (2026-04):
+- ✅ `ddg` — fully implemented (ported from hubnews DuckDuckGoImageService)
+- ⚠️ `pexels`, `unsplash`, `apify-google`, `ai-gen` — stubs (TODO)
+
+### Workflow (agent-in-the-loop)
+
+```bash
+# 1. Download top 5 candidates per slide
+node renderer/cli.mjs images-prep carousel.json --count 5
+# → saves carousel.candidates.json with paths to all candidate images
+```
+
+Then Claude (agent):
+1. Reads `carousel.candidates.json`
+2. For each slide's candidates, uses `Read` tool to VIEW each image
+3. Decides which candidate best fits the slide's context (query + titulo + texto + topic)
+4. Rejection criteria: low-res, text-heavy screenshot, diagram/chart, stock-watermark, meme, off-topic, PDF page, logo
+5. Accepts the best one:
+   ```bash
+   node renderer/cli.mjs images-accept carousel.json --slide 5 --path <chosen-image>
+   ```
+6. If NO candidate works for a slide, fetches more:
+   ```bash
+   node renderer/cli.mjs images-prep carousel.json --slide 5 --count 5 --skip 5
+   # (next 5 candidates for slide 5)
+   ```
+7. Repeats until all slides have accepted images OR provider chain exhausted
+
+### When to reject a candidate (Claude's checklist)
+
+Reject if the image:
+- ❌ Is not a real photograph (screenshot, diagram, chart, logo, infographic)
+- ❌ Has visible watermark (Shutterstock, Getty, etc.)
+- ❌ Is text-heavy (meme template, quote card, PDF page)
+- ❌ Doesn't match the slide's actual subject (generic when specific was asked)
+- ❌ Is low quality or clearly compressed
+- ❌ Is a thumbnail/preview (too small even if upscaled)
+- ❌ Shows wrong person/place when a specific entity was queried
+
+Accept if the image:
+- ✅ Shows the real subject of the query (specific person/place/scene)
+- ✅ Is a clear photograph, not a composite/diagram
+- ✅ Has editorial quality (sharp, well-lit, no watermark)
+- ✅ Matches the tone of the slide (if slide is about crisis, don't pick happy-celebration)
+
 
 ## Mode `none` — solid color + typography
 
