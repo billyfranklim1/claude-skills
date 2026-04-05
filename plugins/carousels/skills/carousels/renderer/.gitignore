@@ -1,5 +1,0 @@
-node_modules/
-.tmp-transpiled/
-.carousels/
-*.candidates.json
-*.with-images.json

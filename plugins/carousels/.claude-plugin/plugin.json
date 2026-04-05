@@ -1,7 +1,0 @@
-{
-  "name": "carousels",
-  "description": "Generate editorial-grade Instagram/LinkedIn carousels with pluggable styles (editorial, list, quote, tutorial) and multi-brand support. Renders locally via Satori+Resvg — no server needed. 100% configurable brands (colors, fonts, logo). Each style has its own variants and prompt framework.",
-  "version": "0.1.0",
-  "keywords": ["carousel","instagram","linkedin","social","editorial","satori","jsx","png","brand","multi-style","local render"],
-  "category": "marketing"
-}
