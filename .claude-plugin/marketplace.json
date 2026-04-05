@@ -64,6 +64,25 @@
       "category": "database"
     },
     {
+      "name": "carousels",
+      "source": "./carousels",
+      "description": "Generate editorial-grade multi-slide carousels (Instagram/LinkedIn) with pluggable styles (editorial/list/quote/tutorial) and multi-brand support. Renders locally via Satori+Resvg \u2014 no server needed.",
+      "version": "0.1.0",
+      "keywords": [
+        "carousel",
+        "instagram",
+        "linkedin",
+        "social",
+        "editorial",
+        "satori",
+        "jsx",
+        "png",
+        "brand",
+        "multi-style"
+      ],
+      "category": "marketing"
+    },
+    {
       "name": "cloudflare-api",
       "source": "./cloudflare-api",
       "description": "Cloudflare API for DNS management, tunnels, and zone administration",

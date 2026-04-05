@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Editorial Carousel",
+  "type": "object",
+  "required": ["meta", "caption", "hashtags", "slides"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["style", "topic"],
+      "properties": {
+        "style": { "const": "editorial" },
+        "brand": { "type": "string" },
+        "topic": { "type": "string" },
+        "generated_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "caption": { "type": "string", "minLength": 100, "maxLength": 2200 },
+    "hashtags": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+      "minItems": 5,
+      "maxItems": 15
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["index", "variant", "titulo", "texto", "destaque"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 1, "maximum": 10 },
+          "variant": { "enum": ["A", "B", "C", "D", "E"] },
+          "titulo": { "type": "string" },
+          "texto": { "type": "string" },
+          "destaque": { "type": "string", "minLength": 1 },
+          "image_query": { "type": "string" },
+          "image_strategy": { "enum": ["none", "ai", "real"] }
+        }
+      }
+    }
+  }
+}

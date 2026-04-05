@@ -1,0 +1,33 @@
+name: "Default"
+handle: "@yourbrand"
+logo: null
+
+colors:
+  primary: "#7B2CBF"          # main purple
+  accent: "#FFD700"           # gold
+  bg_light: "#FFFFFF"
+  bg_dark: "#0A0A0A"
+  bg_impact: "#2D1B69"        # deep purple for slide 8 (editorial E variant)
+  text_on_light: "#0A0A0A"
+  text_on_dark: "#FFFFFF"
+  highlight: "#7B2CBF"        # destaque word color (same as primary)
+
+fonts:
+  heading:
+    family: "Inter"
+    weight: 900
+  body:
+    family: "Inter"
+    weight: 500
+  accent:
+    family: "Inter"
+    weight: 700
+
+logo_placement:
+  first_slide: "none"
+  last_slide: "none"
+  other_slides: "none"
+
+dimensions:
+  width: 1080
+  height: 1080                # 1:1 Instagram feed

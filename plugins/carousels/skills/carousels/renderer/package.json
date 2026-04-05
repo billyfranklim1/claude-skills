@@ -1,0 +1,23 @@
+{
+  "name": "carousels-renderer",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Local carousel renderer — JSON+JSX → PNG via Satori+Resvg",
+  "bin": {
+    "carousels": "./cli.mjs"
+  },
+  "scripts": {
+    "render": "node cli.mjs render",
+    "preview": "node cli.mjs preview"
+  },
+  "dependencies": {
+    "satori": "^0.10.14",
+    "@resvg/resvg-js": "^2.6.2",
+    "yaml": "^2.6.1",
+    "@babel/core": "^7.25.0",
+    "@babel/preset-react": "^7.25.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

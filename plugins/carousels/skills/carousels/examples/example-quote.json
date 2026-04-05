@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "style": "quote",
+    "brand": "default",
+    "topic": "Kahneman sobre intuição",
+    "generated_at": "2026-04-04T21:30:00Z"
+  },
+  "caption": "Quando Kahneman escreveu isso, ele já sabia que a maioria das decisões de negócio são feitas pelo sistema 1 — rápido, emocional, confiante demais. A pergunta certa não é se você confia na sua intuição. É quantas vezes ela te traiu e você não percebeu.",
+  "hashtags": ["kahneman", "decisao", "viescognitivo", "negocios", "psicologia", "lideranca"],
+  "slides": [
+    {
+      "index": 1,
+      "variant": "big-text",
+      "role": "quote",
+      "quote": "A confiança que sentimos numa crença depende mais da coerência da história que contamos a nós mesmos do que das evidências que a sustentam.",
+      "attribution": "Daniel Kahneman",
+      "context": "Thinking, Fast and Slow (2011)",
+      "destaque": "coerência da história"
+    },
+    {
+      "index": 2,
+      "variant": "big-text",
+      "role": "context",
+      "titulo": "Por que isso importa em 2026",
+      "texto": "Empresas que tomam decisões por 'sentimento' perdem para empresas que tomam decisões por dados desagradáveis. A coerência narrativa é confortável — e cara.",
+      "destaque": "desagradáveis"
+    }
+  ]
+}

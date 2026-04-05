@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "style": "editorial",
+    "brand": "default",
+    "topic": "IA tomando empregos de call center",
+    "generated_at": "2026-04-04T21:30:00Z"
+  },
+  "caption": "A automação de call centers não é mais previsão. É fato operacional em empresas brasileiras que descobriram algo desconfortável: a IA resolve 70% dos tickets pelo mesmo custo de um turno noturno de dez atendentes. A pergunta não é mais se a substituição acontece. É quem fica com a função reduzida de supervisionar a máquina que aprendeu sua linguagem. Qual empresa você acha que será a próxima?",
+  "hashtags": ["ia", "tecnologia", "trabalho", "callcenter", "automacao", "futurodotrabalho", "brasil", "empregos"],
+  "slides": [
+    {
+      "index": 1,
+      "variant": "A",
+      "titulo": "A IA NÃO SUBSTITUIU TRABALHADORES. REORGANIZOU A FOLHA",
+      "texto": "Call centers brasileiros cortaram 40% dos postos de atendimento em 18 meses. E ninguém chamou de demissão em massa.",
+      "destaque": "40%",
+      "image_query": "call center operator Brazil headset workstation",
+      "image_strategy": "ai"
+    },
+    {
+      "index": 2,
+      "variant": "A",
+      "titulo": "Magazine Luiza passou 75% dos tickets de 1ª linha pra modelo interno em 2025",
+      "texto": "O sistema responde em 12 segundos, entende gírias, e reduz custo por ticket de R$ 8,40 pra R$ 0,60. O call center humano virou departamento de exceção.",
+      "destaque": "R$ 8,40 pra R$ 0,60",
+      "image_query": "Magazine Luiza call center São Paulo headset",
+      "image_strategy": "ai"
+    },
+    {
+      "index": 3,
+      "variant": "C",
+      "titulo": "Isso não é automação. É reestruturação silenciosa do contrato social",
+      "texto": "A promessa era que IA liberaria humanos pra tarefas complexas. O que aconteceu foi redistribuição de valor: empresa economiza, trabalhador vira supervisor da máquina.",
+      "destaque": "reestruturação silenciosa",
+      "image_strategy": "none"
+    },
+    {
+      "index": 4,
+      "variant": "D",
+      "titulo": "Chamam isso de 'colaboração humano-máquina'. É eufemismo",
+      "texto": "Na prática, o atendente fica de plantão pra resolver o que o bot não conseguiu. Salário menor, carga cognitiva maior, nenhum reconhecimento.",
+      "destaque": "eufemismo",
+      "image_strategy": "none"
+    },
+    {
+      "index": 5,
+      "variant": "A",
+      "titulo": "Em Feira de Santana, uma cooperativa de atendentes virou sindicato digital",
+      "texto": "Ex-operadores se reorganizaram pra treinar os modelos que os substituíram. Vendem dados de conversas reais pra fintechs. 800 pessoas, R$ 240 mil por mês.",
+      "destaque": "R$ 240 mil",
+      "image_query": "Feira de Santana Bahia tech cooperative workers",
+      "image_strategy": "ai"
+    },
+    {
+      "index": 6,
+      "variant": "B",
+      "titulo": "A curva não para no call center. Está em RH, SAC, cobrança, suporte jurídico",
+      "texto": "Bancos brasileiros cortaram 60 mil vagas operacionais em 3 anos. A receita cresceu 22%. A equação já fechou — agora é replicação.",
+      "destaque": "60 mil vagas",
+      "image_query": "Brazilian bank operations center workers automation",
+      "image_strategy": "ai"
+    },
+    {
+      "index": 7,
+      "variant": "C",
+      "titulo": "Isso está acontecendo em hotelaria, varejo, educação online",
+      "texto": "Toda função com script repetível está sendo refatorada. O mercado não demite — fragmenta a função em micro-tarefas que a IA pode executar e o humano pode auditar.",
+      "destaque": "script repetível",
+      "image_strategy": "none"
+    },
+    {
+      "index": 8,
+      "variant": "E",
+      "titulo": "",
+      "texto": "A próxima década não vai definir quem tem emprego. Vai definir quem tem poder de negociação com a máquina que aprendeu fazer seu trabalho por um décimo do custo. O salário de amanhã depende da resposta que você dá hoje pra essa pergunta.",
+      "destaque": "poder de negociação",
+      "image_strategy": "none"
+    },
+    {
+      "index": 9,
+      "variant": "A",
+      "titulo": "Quem perde é quem tem habilidade específica e narrativa genérica",
+      "texto": "Atendentes com 15 anos de experiência viram números numa planilha. A IA não replica vínculo — mas empresas descobriram que 70% dos clientes não precisam de vínculo.",
+      "destaque": "70% dos clientes",
+      "image_query": "Brazilian call center worker layoff office",
+      "image_strategy": "ai"
+    },
+    {
+      "index": 10,
+      "variant": "A",
+      "titulo": "A MÁQUINA NÃO TIROU O EMPREGO. REDEFINIU O QUE VALE PAGAR",
+      "texto": "Qual habilidade sua ainda é cara o suficiente pra máquina não tentar imitar?",
+      "destaque": "O QUE VALE PAGAR",
+      "image_query": "Brazilian worker looking at AI screen reflection",
+      "image_strategy": "ai"
+    }
+  ]
+}
