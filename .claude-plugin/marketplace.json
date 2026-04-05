@@ -578,6 +578,27 @@
       "category": "development"
     },
     {
+      "name": "viral-clips",
+      "source": "./viral-clips",
+      "description": "Automated viral clip factory \u2014 turn long-form videos (podcasts, interviews, YouTube) into 9:16 TikTok/Reels/Shorts with karaoke captions, hook titles, speaker zooms, and AI viral-moment detection using Remotion",
+      "version": "1.0.0",
+      "keywords": [
+        "tiktok",
+        "reels",
+        "shorts",
+        "clips",
+        "viral",
+        "remotion",
+        "video editing",
+        "podcast cuts",
+        "karaoke",
+        "captions",
+        "whisper",
+        "vertical video"
+      ],
+      "category": "marketing"
+    },
+    {
       "name": "web-research",
       "source": "./web-research",
       "description": "Web research \u2014 search documentation, browse sites, analyze competitors",

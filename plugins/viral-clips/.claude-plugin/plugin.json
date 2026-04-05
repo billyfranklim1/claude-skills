@@ -1,0 +1,7 @@
+{
+  "name": "viral-clips",
+  "description": "Automated viral clip factory — turn long-form videos (podcasts, interviews, YouTube) into 9:16 TikTok/Reels/Shorts with karaoke captions, hook titles, speaker zooms, and AI viral-moment detection using Remotion",
+  "version": "1.0.0",
+  "keywords": ["tiktok","reels","shorts","clips","viral","remotion","video editing","podcast cuts","karaoke","captions","whisper","9:16","vertical video"],
+  "category": "marketing"
+}
