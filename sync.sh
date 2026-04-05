@@ -19,12 +19,19 @@ sync_target() {
 
     for plugin_dir in "$REPO_DIR"/plugins/*/; do
         local name=$(basename "$plugin_dir")
-        local skill_md="$plugin_dir/skills/$name/SKILL.md"
+        local skill_dir="$plugin_dir/skills/$name"
+        local skill_md="$skill_dir/SKILL.md"
 
         if [[ -f "$skill_md" ]]; then
             local dest="$target_dir/$name"
+            # Copy the entire skill directory (SKILL.md + rules/, scripts/, etc.)
+            # Skip symlinks to avoid overwriting manually-linked skills.
+            if [[ -L "$dest" ]]; then
+                continue
+            fi
+            rm -rf "$dest"
             mkdir -p "$dest"
-            cp -f "$skill_md" "$dest/SKILL.md"
+            cp -R "$skill_dir"/. "$dest/"
         fi
     done
 }
